@@ -13,5 +13,12 @@
     ./misc.nix
   ];
 
+  home.packages = with pkgs [
+    swaybg
+    fuzzel
+    wl-clipboard
+    ghostty
+  ];
+
   programs.niri.enable = true;  # already defined in inputs.niri.homeModules.niri
 }

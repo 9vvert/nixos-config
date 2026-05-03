@@ -16,7 +16,7 @@
       settings = {
         # configure noctalia here
         bar = {
-          density = "compact";
+          density = "default";
           position = "top";
           showCapsule = false;
           widgets ={
@@ -55,7 +55,7 @@
             ];
           };
         };
-        colorSchemes.predefinedScheme = "Monochrome";
+        colorSchemes.predefinedScheme = "Nord";
         general = {
           # avatarImage = "/home/drfoobar/.face";	# todo
           radiusRatio = 0.2;

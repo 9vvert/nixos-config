@@ -13,5 +13,5 @@
     ./misc.nix
   ];
 
-  programs.niri.enable = true;
+  programs.niri.enable = true;  # already defined in inputs.niri.homeModules.niri
 }

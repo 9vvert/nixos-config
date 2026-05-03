@@ -1,7 +1,7 @@
-{ pkgs, ... }:
+{ pkgs, inputs ... }:
 
 {
-  # imports = [
-  #   ./noctalia.nix
-  # ];
+  imports = [
+    ./noctalia.nix
+  ];
 }

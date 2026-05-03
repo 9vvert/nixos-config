@@ -17,11 +17,8 @@
 
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
-
-    # Import the niri home-manager module
-    # inputs.niri.homeModules.niri
-    ./desktop/niri   # this is conflicted with niri in home-manager
-    ./desktop/quickshell/noctalia.nix
+    ./desktop/niri
+    ./desktop/quickshell
   ];
 
   nixpkgs = {
@@ -174,35 +171,35 @@
   };
 
 
-  programs.niri = {
-    enable = true;
-    # ----------------------------------------------------------------
-    # ADD THIS BLOCK:
-    # Overrides the niri derivation to provide the missing XKB paths
-    # and fix the tests during the build.
-    # ----------------------------------------------------------------
+  # programs.niri = {
+  #   enable = true;
+  #   # ----------------------------------------------------------------
+  #   # ADD THIS BLOCK:
+  #   # Overrides the niri derivation to provide the missing XKB paths
+  #   # and fix the tests during the build.
+  #   # ----------------------------------------------------------------
 
-    package = pkgs.niri.overrideAttrs (old: {
-      nativeCheckInputs = (old.nativeCheckInputs or []) ++ [ pkgs.xkeyboard_config ];
-      preCheck = (old.preCheck or "") + ''
-        export XKB_CONFIG_ROOT="${pkgs.xkeyboard_config}/share/X11/xkb"
-      '';
+  #   package = pkgs.niri.overrideAttrs (old: {
+  #     nativeCheckInputs = (old.nativeCheckInputs or []) ++ [ pkgs.xkeyboard_config ];
+  #     preCheck = (old.preCheck or "") + ''
+  #       export XKB_CONFIG_ROOT="${pkgs.xkeyboard_config}/share/X11/xkb"
+  #     '';
 
-      # NOTE: If tests STILL fail for some other reason, you can 
-      # completely skip the testing phase by uncommenting the line below:
-      # doCheck = false; 
-    });
-    settings = {
-        # ...
-        spawn-at-startup = [
-          {
-            command = [
-              "noctalia-shell"
-            ];
-          }
-        ];
-    };
-  };
+  #     # NOTE: If tests STILL fail for some other reason, you can 
+  #     # completely skip the testing phase by uncommenting the line below:
+  #     # doCheck = false; 
+  #   });
+  #   settings = {
+  #       # ...
+  #       spawn-at-startup = [
+  #         {
+  #           command = [
+  #             "noctalia-shell"
+  #           ];
+  #         }
+  #       ];
+  #   };
+  # };
 
   # if have already added to configuration.nix, then there is no need to enable there
 

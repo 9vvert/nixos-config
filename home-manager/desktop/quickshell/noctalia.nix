@@ -1,7 +1,5 @@
 { pkgs, inputs, ... }:
 {
-  # home-manager.users.woc = {
-    # import the home manager module
     imports = [
       inputs.noctalia.homeModules.default
     ];
@@ -13,9 +11,9 @@
         # configure noctalia here
         bar = {
           density = "compact";
-          position = "right";
+          position = "top";
           showCapsule = false;
-          widgets = {
+          widgets = top;
             left = [
               {
                 id = "ControlCenter";
@@ -60,8 +58,15 @@
           monthBeforeDay = true;
           name = "Marseille, France";
         };
+  };
+
+  home-manager.users.drfoobar = {
+    # ... other config ...
+
+    home.file.".cache/noctalia/wallpapers.json" = {
+      text = builtins.toJSON {
+        defaultWallpaper = "../images/sea.png";
       };
-      # this may also be a string or a path to a JSON file.
     };
-  # };
+  };
 }

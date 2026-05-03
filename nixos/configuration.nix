@@ -70,15 +70,15 @@
   environment = {
     systemPackages = with pkgs; [ vim neovim git google-chrome wget gcc
       wayland-utils fastfetch python314 lua zed xwayland-satellite
-      wl-clipboard clash-verge-rev telegram-desktop fzf
+      wl-clipboard clash-verge-rev telegram-desktop
     ];
     variables.EDITOR = "vim";
   };
 
   boot.loader = {
+    timeout = 30;
     grub = {
       enable = true;
-      timeout = 30;
 	    device = "nodev";
 	    efiSupport = true;
 	    useOSProber = true;

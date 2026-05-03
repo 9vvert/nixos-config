@@ -20,7 +20,7 @@
 
     # Import the niri home-manager module
     inputs.niri.homeModules.niri
-    ./desktop/niri
+    # ./desktop/niri   # this is conflicted with niri in home-manager
     ./desktop/quickshell/noctalia.nix
   ];
 

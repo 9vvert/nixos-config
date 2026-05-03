@@ -4,10 +4,10 @@
   programs.niri.settings."window-rules" = [
     {
       "geometry-corner-radius" = {
-        "top-left" = 20;
-        "top-right" = 20;
-        "bottom-left" = 20;
-        "bottom-right" = 20;
+        "top-left" = 20.0;
+        "top-right" = 20.0;
+        "bottom-left" = 20.0;
+        "bottom-right" = 20.0;
       };
       "draw-border-with-background" = false;
       "clip-to-geometry" = true;

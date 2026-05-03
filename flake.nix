@@ -80,9 +80,8 @@
 
           home-manager.nixosModules.home-manager
           {
-            # home-manager.useGlobalPkgs = true;
-            # home-manager.useUserPackages = true;
-            pkgs = nixpkgs.legacyPackages.x86_64-linux;
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
             # When loading home.nix, pass an extra argument named inputs.
             # IMPORTANT: pass `inputs` to home.nix so `inputs.niri-flake...` works there
             home-manager.extraSpecialArgs = { inherit inputs; };

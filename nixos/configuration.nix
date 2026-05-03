@@ -70,7 +70,7 @@
   environment = {
     systemPackages = with pkgs; [ vim neovim git google-chrome wget gcc
       wayland-utils fastfetch python314 lua zed xwayland-satellite
-      wl-clipboard clash-verge-rev telegram-desktop
+      wl-clipboard clash-verge-rev telegram-desktop firefox
       home-manager
     ];
     variables.EDITOR = "vim";

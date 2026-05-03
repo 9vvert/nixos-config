@@ -2,8 +2,8 @@
 
 {
   imports = [
-    # if there is no inputs.noctalia.homeModules.default, it need to be imported in home.nix
-    inputs.noctalia.homeModules.default
+    # if there is no inputs.niri.homeModules.niri, it need to be imported in home.nix
+    inputs.niri.homeModules.niri
     ./input.nix
     ./outputs.nix
     ./layout.nix

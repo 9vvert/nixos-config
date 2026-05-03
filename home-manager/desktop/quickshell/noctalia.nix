@@ -4,6 +4,12 @@
       inputs.noctalia.homeModules.default
     ];
 
+    home.file.".cache/noctalia/wallpapers.json" = {
+      text = builtins.toJSON {
+        defaultWallpaper = "../images/sea.png";
+      };
+    };
+
     # configure options
     programs.noctalia-shell = {
       enable = true;
@@ -13,7 +19,7 @@
           density = "compact";
           position = "top";
           showCapsule = false;
-          widgets = top;
+          widgets ={
             left = [
               {
                 id = "ControlCenter";
@@ -58,15 +64,6 @@
           monthBeforeDay = true;
           name = "Marseille, France";
         };
-  };
-
-  home-manager.users.drfoobar = {
-    # ... other config ...
-
-    home.file.".cache/noctalia/wallpapers.json" = {
-      text = builtins.toJSON {
-        defaultWallpaper = "../images/sea.png";
       };
-    };
   };
 }

@@ -69,7 +69,7 @@
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
       # FIXME replace with your hostname
-      "woc@nixos" = nixpkgs.lib.nixosSystem {
+      "nixos" = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = [
           # > Our main nixos configuration file <
@@ -95,7 +95,7 @@
     # Available through 'home-manager --flake .#your-username@your-hostname'
     homeConfigurations = {
       # FIXME replace with your username@hostname
-      "woc@nixos" = home-manager.lib.homeManagerConfiguration {
+      "woc" = home-manager.lib.homeManagerConfiguration {
         # Home-manager requires 'pkgs' instance
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # FIXME replace x86_64-linux with your architecture 
         extraSpecialArgs = {inherit inputs;};

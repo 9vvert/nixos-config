@@ -164,8 +164,11 @@
   # basic configuration of git, please change to your own
   programs.git = {
     enable = true;
-    userName = "9vvert";
-    userEmail = "mzhm803@gmail.com";
+    settings.user = {
+      name = "9vvert";
+      email = "mzhm803@gmail.com";
+    };
+    
   };
 
 
@@ -246,11 +249,12 @@
 
   programs.vscode = {
     enable = true;
-    extensions = with pkgs.vscode-extensions; [
-      dracula-theme.theme-dracula
-      vscodevim.vim
-      yzhang.markdown-all-in-one
-    ];
+    profiles.default={
+      extensions = with pkgs.vscode-extensions; [
+        dracula-theme.theme-dracula
+        yzhang.markdown-all-in-one
+      ];
+    };
   };
 
   # This value determines the home Manager release that your

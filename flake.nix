@@ -78,56 +78,34 @@
           # ./noctalia.nix
           inputs.daeuniverse.nixosModules.dae
 
-          # home-manager.nixosModules.home-manager
-          # {
-          #   home-manager.useGlobalPkgs = true;
-          #   home-manager.useUserPackages = true;
-
-          #   # When loading home.nix, pass an extra argument named inputs.
-          #   # IMPORTANT: pass `inputs` to home.nix so `inputs.niri-flake...` works there
-          #   home-manager.extraSpecialArgs = { inherit inputs; };  # Pass inputs here too, but why?
-          #   home-manager.users.woc = import ./home.nix;
-          # }
+          home-manager.nixosModules.home-manager
+          {
+            # home-manager.useGlobalPkgs = true;
+            # home-manager.useUserPackages = true;
+            pkgs = nixpkgs.legacyPackages.x86_64-linux;
+            # When loading home.nix, pass an extra argument named inputs.
+            # IMPORTANT: pass `inputs` to home.nix so `inputs.niri-flake...` works there
+            home-manager.extraSpecialArgs = { inherit inputs; };
+            home-manager.users.woc = import ./home-manager/home.nix;
+          }
         ];
       };
     };
 
-    # Standalone home-manager configuration entrypoint
-    # Available through 'home-manager --flake .#your-username@your-hostname'
-    homeConfigurations = {
-      # FIXME replace with your username@hostname
-      "woc@nixos" = home-manager.lib.homeManagerConfiguration {
-        # Home-manager requires 'pkgs' instance
-        pkgs = nixpkgs.legacyPackages.x86_64-linux; # FIXME replace x86_64-linux with your architecture 
-        extraSpecialArgs = {inherit inputs;};
-        modules = [
-          # > Our main home-manager configuration file <
-          ./home-manager/home.nix
-          
-        ];
-      };
-    };
-
-    # nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-    #     system = "x86_64-linux";		# you should add this so that configuration.nix can use config.system
-    #     specialArgs = { inherit inputs; };	# Pass inputs to specialArgs
-
+    # # Standalone home-manager configuration entrypoint
+    # # Available through 'home-manager --flake .#your-username@your-hostname'
+    # homeConfigurations = {
+    #   # FIXME replace with your username@hostname
+    #   "woc@nixos" = home-manager.lib.homeManagerConfiguration {
+    #     # Home-manager requires 'pkgs' instance
+    #     pkgs = nixpkgs.legacyPackages.x86_64-linux; # FIXME replace x86_64-linux with your architecture 
+    #     extraSpecialArgs = {inherit inputs;};
     #     modules = [
-    #       ./configuration.nix
-    #       ./noctalia.nix
-    #       inputs.daeuniverse.nixosModules.dae
-
-    #       home-manager.nixosModules.home-manager
-    #       {
-    #         home-manager.useGlobalPkgs = true;
-    #         home-manager.useUserPackages = true;
-
-    #         # When loading home.nix, pass an extra argument named inputs.
-    #         # IMPORTANT: pass `inputs` to home.nix so `inputs.niri-flake...` works there
-    #         home-manager.extraSpecialArgs = { inherit inputs; };  # Pass inputs here too, but why?
-    #         home-manager.users.woc = import ./home.nix;
-    #       }
+    #       # > Our main home-manager configuration file <
+    #       ./home-manager/home.nix
+          
     #     ];
     #   };
+    # };
   };
 }

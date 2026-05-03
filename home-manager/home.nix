@@ -96,6 +96,8 @@
     xz
     unzip
     p7zip
+    ghostty
+    fuzzel
 
     # utils
     ripgrep # recursively searches directories for a regex pattern

@@ -165,8 +165,8 @@
     rofi
     zsh
 
-    inputs.quickshell.packages.${pkgs.system}.default
-    inputs.codex-cli-nix.packages.${pkgs.system}.default
+    inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default
+    inputs.codex-cli-nix.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   

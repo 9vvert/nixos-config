@@ -4,6 +4,7 @@
   imports = [
     ./alias
     ./vars
+    ./carapace.nix
   ];
   options.myshell.base = {
     envVars = lib.mkOption {

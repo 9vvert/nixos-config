@@ -6,7 +6,7 @@
       command = ["noctalia-shell"];
     }
     {
-      command = ["swaybg" "-i" "../images/sea.png"]
+      command = ["swaybg" "-i" "~/nixos-config/home-manager/desktop/images/sea.png"];
     }
   ];
 }

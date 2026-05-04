@@ -3,7 +3,7 @@
     EDITOR = "vim";
     VISUAL = "vim";
     BROWSER = "firefox";
-    TERMIAL = "ghostty";
+    TERMINAL = "ghostty";
     PAGER = "less";  
   };
 }

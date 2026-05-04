@@ -5,7 +5,7 @@
     ./alias
     ./vars
   ];
-  options.myshell.base = lib.mkOption {
+  options.myshell.base = {
     envVars = lib.mkOption {
       type = with lib.types; attrsOf str;
       default = {};
@@ -16,12 +16,13 @@
       type = with lib.types; attrsOf str;
       default = {};
       description = "Command aliases";
-    }
+    };
   };
 
   config = {
+    home.sessionVariables = config.myshell.base.envVars;
     programs.nushell.shellAliases = config.myshell.base.cmdAlias;
     programs.zsh.shellAliases = config.myshell.base.cmdAlias;
-    programs.bashshellAliases = config.myshell.base.cmdAlias;
+    programs.bash.shellAliases = config.myshell.base.cmdAlias;
   };
 }

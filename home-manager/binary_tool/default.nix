@@ -3,5 +3,7 @@
 {
   imports = [
     ./hex
+    ./debug
+    ./reverse
   ];
 }

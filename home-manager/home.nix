@@ -107,6 +107,12 @@
     eza # A modern replacement for ‘ls’
     fzf # A command-line fuzzy finder
 
+
+    # image/video
+    loupe
+    kdePackages.gwenview
+
+
     # networking tools
     mtr # A network diagnostic tool
     iperf3
@@ -230,6 +236,19 @@
         dracula-theme.theme-dracula
         yzhang.markdown-all-in-one
       ];
+    };
+  };
+
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      "image/png" = ["org.gnome.Loupe.desktop"];
+      "image/jpeg" = ["org.gnome.Loupe.desktop"];
+      "image/webp" = ["org.gnome.Loupe.desktop"];
+      "image/gif" = ["org.gnome.Loupe.desktop"];
+      "image/bmp" = ["org.gnome.Loupe.desktop"];
+      "image/tiff" = ["org.gnome.Loupe.desktop"];
+      "image/svg+xml" = ["org.gnome.Loupe.desktop"];
     };
   };
 

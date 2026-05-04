@@ -28,5 +28,6 @@
     nushell
     nufmt   # formatter for nushell
     starship
+    carapace  # shell completion
   ];
 }

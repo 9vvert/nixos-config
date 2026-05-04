@@ -22,6 +22,7 @@
     ./terminal
     ./shell
     ./ai/agent
+    ./binary_tool
   ];
 
   nixpkgs = {

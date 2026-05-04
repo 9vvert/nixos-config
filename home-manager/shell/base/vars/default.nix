@@ -1,3 +1,4 @@
+{ ... }:
 {
   myshell.base.envVars = {
     EDITOR = "vim";

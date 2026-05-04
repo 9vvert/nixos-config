@@ -1,9 +1,10 @@
-{}:
+{ ... }:
 {
   myshell.base.cmdAlias = {
-    ll = "ls -l";
-    la = "ls -a";
-    lla = "ls -la";
+    l = "exa";
+    ll = "exa -l";
+    la = "exa -a";
+    lla = "exa -la";
     system-rebuild = "sudo nixos-rebuild switch --flake";
     home-rebuild = "home-manager switch --flake";
     proxy_start = "sudo systemctl start dae";

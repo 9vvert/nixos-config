@@ -6,7 +6,7 @@
 
     home.file.".cache/noctalia/wallpapers.json" = {
       text = builtins.toJSON {
-        defaultWallpaper = "../images/sea.png";
+        defaultWallpaper = "${../images/sea.png}";
       };
     };
 

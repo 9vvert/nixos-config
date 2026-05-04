@@ -7,7 +7,7 @@
     configFile.text = ''
       $env.config = {
         show_banner: false
-        edit_mode: vi
+        edit_mode: emacs
 
         history: {
           max_size: 10000

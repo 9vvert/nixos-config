@@ -16,34 +16,47 @@
       settings = {
         # configure noctalia here
         bar = {
-          density = "default";
+          density = "comfortable";
           position = "top";
+          barType = "simple";
+          outerCorners = true;
+          frameRadius = 999;
+          useSeperateOpacity = true;
+          
           showCapsule = false;
+          widgetSpacig = 6;
+          contentPadding = 6;
           widgets ={
             left = [
               {
-                id = "ControlCenter";
-                useDistroLogo = true;
+                id = "SystemMonitor";
               }
-              {
-                id = "Network";
-              }
-              {
-                id = "Bluetooth";
-              }
-            ];
-            center = [
               {
                 hideUnoccupied = false;
                 id = "Workspace";
                 labelMode = "none";
               }
-            ];
-            right = [
               {
-                alwaysShowPercentage = false;
-                id = "Battery";
-                warningThreshold = 30;
+                id = "Tray";
+                colorizeIcons = false;
+              }
+              {
+                id = "Taskbar";
+                colorizeIcons = false;
+              }
+              {
+                id = "MediaMini";
+              }
+              {
+                id = "AudioVisualizer";
+              }
+              
+              
+              
+            ];
+            center = [
+              {
+                id = "NotificationHistory";
               }
               {
                 formatHorizontal = "HH:mm";
@@ -52,13 +65,56 @@
                 useMonospacedFont = true;
                 usePrimaryColor = true;
               }
+              {
+                id = "ControlCenter";
+                useDistroLogo = true;
+              }
+              {
+                id = "Launcher";
+              }  
+              {
+                id = "WallpaperSelector";
+              }
+              
+              
+              
+              
+            ];
+            right = [
+              {
+                id = "Network";
+              }
+              {
+                id = "Bluetooth";
+              }
+              {
+                id = "Volume";
+              }
+              {
+                id = "Brightness";
+              }
+              {
+                id = "DarkMode";
+              }
+              {
+                alwaysShowPercentage = false;
+                id = "Battery";
+                warningThreshold = 30;
+              }
+              {
+                id = "KeepAwake";
+              }
+              {
+                id = "SessionMenu";
+              }
+              
             ];
           };
         };
         colorSchemes.predefinedScheme = "Nord";
         general = {
           # avatarImage = "/home/drfoobar/.face";	# todo
-          radiusRatio = 0.2;
+          radiusRatio = 1.0;  # shape of workspace unit; bar corner
         };
         location = {
           monthBeforeDay = true;

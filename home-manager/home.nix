@@ -111,6 +111,8 @@
     # image/video
     loupe
     kdePackages.gwenview
+    qqmusic
+    playerctl   # MediaMini need this? 
 
 
     # networking tools

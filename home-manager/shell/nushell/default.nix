@@ -23,6 +23,9 @@
         file_format = "sqlite";
       };
     };
+    extraConfig = ''
+      source ${./init.nu}
+    '';
     # configFile.text = ''
     #   $env.config = {
     #     show_banner: false

@@ -127,7 +127,8 @@
 
     openssh.enable = true;
     dae = {
-      enable = true;
+      # # dont start automatically
+      # enable = true;  
       configFile = "/etc/dae/config.dae";
     };
 	};

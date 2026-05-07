@@ -9,7 +9,7 @@
   programs.ghostty = {
     enable = true;
     settings = {
-      # window-decoration = "none";
+      window-decoration = "none";
       window-show-tab-bar = "never";
       theme = "dark:Abernathy, light:Breeze";
       font-family = "JetBrains Mono";

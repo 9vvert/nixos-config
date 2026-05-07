@@ -14,8 +14,8 @@ in
     ${inputs.niri.lib.kdl.serialize.nodes (niriSettings.render config.programs.niri.settings)}
 
     blur {
-        passes 3
-        offset 3.0
+        passes 2
+        offset 2
         noise 0.02
         saturation 1.2
     }

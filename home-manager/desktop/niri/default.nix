@@ -10,8 +10,15 @@
     ./startup.nix
     ./keybinds.nix
     ./rules.nix
+    ./blur.nix
     ./misc.nix
   ];
+
+  programs.niri = {
+    enable = true; # already defined in inputs.niri.homeModules.niri
+    # use niri-unstable (to enable blur)
+    package = inputs.niri.packages.${pkgs.system}.niri-unstable;
+  };
 
   home.packages = with pkgs; [
     swaybg
@@ -19,6 +26,4 @@
     wl-clipboard
     ghostty
   ];
-
-  programs.niri.enable = true;  # already defined in inputs.niri.homeModules.niri
 }

@@ -133,7 +133,10 @@
 	};
 
   programs = {
-    niri.enable = true;
+    niri = {
+      enable = true;
+      package = inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.niri-unstable;
+    };
   };
 
   # TODO: Configure your system-wide user settings (groups, etc), add more users as needed.

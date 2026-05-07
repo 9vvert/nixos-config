@@ -17,7 +17,7 @@
   programs.niri = {
     enable = true; # already defined in inputs.niri.homeModules.niri
     # use niri-unstable (to enable blur)
-    package = inputs.niri.packages.${pkgs.system}.niri-unstable;
+    package = inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.niri-unstable;
   };
 
   home.packages = with pkgs; [

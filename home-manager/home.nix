@@ -20,6 +20,7 @@
     ./desktop/niri
     ./desktop/quickshell
     ./desktop/input_method
+    ./desktop/theme-sync
     ./terminal
     ./shell
     ./ai/agent
@@ -172,6 +173,10 @@
     inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default
     inputs.codex-cli-nix.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
+
+  home.file.".local/share/icons/hicolor/256x256/apps/vscode.png" = {
+    source = "${pkgs.vscode}/share/pixmaps/vscode.png";
+  };
 
   
   # basic configuration of git, please change to your own

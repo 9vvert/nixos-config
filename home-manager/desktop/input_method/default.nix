@@ -11,8 +11,7 @@
     force = true;
   };
   home.file.".config/fcitx5/conf/classicui.conf" = {
-    source = ./fcitx5/conf/classicui.conf;
-    force = true;
+    enable = false;
   };
 
   # rime

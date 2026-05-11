@@ -12,7 +12,8 @@
       window-decoration = "none";
       gtk-titlebar = false;
       window-show-tab-bar = "never";
-      theme = "dark:Abernathy, light:Breeze";
+      theme = "dark:Breeze, light:Breeze";
+      # theme = "dark:Abernathy, light:Breeze";
       font-family = "JetBrains Mono";
       background-opacity = 0.85;
       font-size = 11;

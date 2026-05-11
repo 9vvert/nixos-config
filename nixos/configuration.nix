@@ -71,7 +71,7 @@
   environment = {
     systemPackages = with pkgs; [ vim neovim emacs git google-chrome wget gcc
       wayland-utils fastfetch python314 lua zed xwayland-satellite
-      wl-clipboard clash-verge-rev telegram-desktop firefox
+      wl-clipboard clash-verge-rev telegram-desktop
       home-manager kmonad
     ];
     variables.EDITOR = "vim";
@@ -139,6 +139,17 @@
   };
 
   programs = {
+    firefox = {
+      enable = true;
+      policies = {
+        DisableAppUpdate = true;
+        Proxy = {
+          Mode = "none";
+          Locked = true;
+        };
+      };
+    };
+
     niri = {
       enable = true;
       package = inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.niri-unstable;

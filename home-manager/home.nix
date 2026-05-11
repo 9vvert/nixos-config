@@ -19,6 +19,7 @@
     # ./nvim.nix
     ./desktop/niri
     ./desktop/quickshell
+    ./desktop/input_method
     ./terminal
     ./shell
     ./ai/agent

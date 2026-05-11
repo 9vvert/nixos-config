@@ -57,7 +57,7 @@
       flake-registry = "";
       # mirror
       substituters = [
-        # "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
+        "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
         "https://cache.nixos.org/"
       ];
       trusted-public-keys = [
@@ -127,11 +127,13 @@
 
     openssh.enable = true;
     dae = {
-      # # dont start automatically
-      # enable = true;  
+      enable = true;
       configFile = "/etc/dae/config.dae";
     };
 	};
+
+  # Keep dae.service available for manual use, but do not start it at boot.
+  systemd.services.dae.wantedBy = lib.mkForce [];
 
   programs = {
     niri = {
@@ -158,6 +160,23 @@
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   
+
+
+  # input method
+  i18n.inputMethod = {
+    enable = true;
+    type = "fcitx5";
+    fcitx5.addons = with pkgs; [
+      fcitx5-gtk
+      fcitx5-rime
+
+      kdePackages.fcitx5-qt   # support for kde/qt
+
+      fcitx5-nord 
+      fcitx5-rose-pin
+      fcitx5-material-color
+    ];
+  };
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you

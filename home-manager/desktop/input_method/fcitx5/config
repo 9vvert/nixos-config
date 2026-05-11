@@ -1,0 +1,11 @@
+[Hotkey]
+EnumerateWithTriggerKeys=True
+EnumerateSkipFirst=False
+
+[Hotkey/TriggerKeys]
+0=Shift+Shift_R
+
+[Hotkey/EnumerateForwardKeys]
+0=Shift+Shift_R
+
+[Hotkey/EnumerateBackwardKeys]

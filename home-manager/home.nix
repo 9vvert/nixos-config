@@ -23,6 +23,7 @@
     ./shell
     ./ai/agent
     ./binary_tool
+    ./editor
   ];
 
   nixpkgs = {

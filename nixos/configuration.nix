@@ -166,11 +166,13 @@
   i18n.inputMethod = {
     enable = true;
     type = "fcitx5";
+    fcitx5.waylandFrontend = true;
     fcitx5.addons = with pkgs; [
       # fcitx5-gtk
       fcitx5-rime
-
-      kdePackages.fcitx5-qt   # support for kde/qt
+      qt6Packages.fcitx5-configtool
+      fcitx5-rime
+      fcitx5-mozc-ut
 
       fcitx5-nord 
       fcitx5-rose-pine

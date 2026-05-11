@@ -2,18 +2,18 @@
 
 {
   # fcitx
-  # home.file.".config/fcitx5/profile" = {
-  #   source = ./fcitx5/profile;
-  #   force = true;
-  # };
-  # home.file.".config/fcitx5/config" = {
-  #   source = ./fcitx5/config;
-  #   force = true;
-  # };
-  # home.file.".config/fcitx5/conf/classicui.conf" = {
-  #   source = ./fcitx5/conf/classicui.conf;
-  #   force = true;
-  # };
+  home.file.".config/fcitx5/profile" = {
+    source = ./fcitx5/profile;
+    force = true;
+  };
+  home.file.".config/fcitx5/config" = {
+    source = ./fcitx5/config;
+    force = true;
+  };
+  home.file.".config/fcitx5/conf/classicui.conf" = {
+    source = ./fcitx5/conf/classicui.conf;
+    force = true;
+  };
 
   # rime
   home.file.".local/share/fcitx5/rime/default.custom.yaml" = {

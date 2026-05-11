@@ -173,7 +173,7 @@
       kdePackages.fcitx5-qt   # support for kde/qt
 
       fcitx5-nord 
-      fcitx5-rose-pin
+      fcitx5-rose-pine
       fcitx5-material-color
     ];
   };

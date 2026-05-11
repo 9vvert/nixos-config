@@ -81,16 +81,6 @@
           # ./configuration.nix
           # ./noctalia.nix
           inputs.daeuniverse.nixosModules.dae
-
-          # home-manager.nixosModules.home-manager
-          # {
-          #   home-manager.useGlobalPkgs = true;
-          #   home-manager.useUserPackages = true;
-          #   # When loading home.nix, pass an extra argument named inputs.
-          #   # IMPORTANT: pass `inputs` to home.nix so `inputs.niri-flake...` works there
-          #   home-manager.extraSpecialArgs = { inherit inputs; };
-          #   home-manager.users.woc = import ./home-manager/home.nix;
-          # }
         ];
       };
     };

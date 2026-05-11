@@ -10,9 +10,5 @@
       # use ${} because it is in nushell
       command = ["${pkgs.swaybg}/bin/swaybg" "-i" "${../images/sea.png}" "-m" "fill"];
     }
-
-    { 
-      command = ["fcitx5" "-d"];
-    }
   ];
 }

@@ -6,6 +6,6 @@
     BROWSER = "firefox";
     TERMINAL = "ghostty";
     PAGER = "less";  
-    GTK_IM_MODULE = "";   # in wayland, it is recommend to use QT_IM_MODULE = "fcitx" instead
+    NIXOS_OZONE_WL = "1";
   };
 }

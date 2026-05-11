@@ -115,6 +115,7 @@
   };
 
   services = {
+    xserver.desktopManager.runXdgAutostartIfNone = true;
     desktopManager.plasma6.enable = true;
 		displayManager.sddm = {
       enable = true;
@@ -133,7 +134,9 @@
 	};
 
   # Keep dae.service available for manual use, but do not start it at boot.
-  systemd.services.dae.wantedBy = lib.mkForce [];
+  systemd.services = {
+    dae.wantedBy = lib.mkForce [];
+  };
 
   programs = {
     niri = {

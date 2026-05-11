@@ -167,7 +167,7 @@
     enable = true;
     type = "fcitx5";
     fcitx5.addons = with pkgs; [
-      fcitx5-gtk
+      # fcitx5-gtk
       fcitx5-rime
 
       kdePackages.fcitx5-qt   # support for kde/qt

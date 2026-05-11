@@ -25,6 +25,7 @@
     ./ai/agent
     ./binary_tool
     ./editor
+    ./override
   ];
 
   nixpkgs = {

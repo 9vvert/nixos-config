@@ -1,5 +1,6 @@
 def dae [option: string] {
     match $option {
+        # NOTE: the command should be the same as those defined in configuration.nix, to prevent sudo password.
         "on" => { sudo /run/current-system/sw/bin/systemctl start dae.service }
         "off" => { sudo /run/current-system/sw/bin/systemctl stop dae.service }
         "stat" => { /run/current-system/sw/bin/systemctl status dae.service }

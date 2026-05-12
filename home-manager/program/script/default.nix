@@ -14,6 +14,6 @@
     luarocks  # Lua package manager
     lua-language-server # lsp
     stylua    # formatter
-    luacheck  # Linter
+    lua54Packages.luacheck  # Linter
   ];
 }

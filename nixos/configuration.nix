@@ -193,6 +193,31 @@
     ];
   };
 
+
+  security.sudo.extraRules = [
+  {
+    users = [ "woc" ];
+    commands = [
+        {
+          command = "sudo systemctl start dae.service";
+          options = [ "NOPASSWD" ];
+        }
+        {
+          command = "sudo systemctl stop dae.service";
+          options = [ "NOPASSWD" ];
+        }
+        {
+          command = "sudo systemctl restart dae.service";
+          options = [ "NOPASSWD" ];
+        }
+        {
+          command = "sudo systemctl status dae.service";
+          options = [ "NOPASSWD" ];
+        }
+    ];
+  }
+];
+
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
   # accidentally delete configuration.nix.

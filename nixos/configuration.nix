@@ -199,19 +199,19 @@
     users = [ "woc" ];
     commands = [
         {
-          command = "sudo systemctl start dae.service";
+          command = "/run/current-system/sw/bin/systemctl start dae.service";
           options = [ "NOPASSWD" ];
         }
         {
-          command = "sudo systemctl stop dae.service";
+          command = "/run/current-system/sw/bin/systemctl stop dae.service";
           options = [ "NOPASSWD" ];
         }
         {
-          command = "sudo systemctl restart dae.service";
+          command = "/run/current-system/sw/bin/systemctl restart dae.service";
           options = [ "NOPASSWD" ];
         }
         {
-          command = "sudo systemctl status dae.service";
+          command = "/run/current-system/sw/bin/systemctl status dae.service";
           options = [ "NOPASSWD" ];
         }
     ];

@@ -5,7 +5,9 @@ def dae [option: string] {
         "stat" => { /run/current-system/sw/bin/systemctl status dae.service }
         "test" => {
             let start = date now
-            let result = (curl --max-time 10 https://google.com | complete)
+            # NOTE: use http rather than https to improve test effenciency
+            let result = (curl --max-time 10 -o /dev/null -sS http://google.com out+err>| complete)
+            # let result = (curl --max-time 10 http://google.com | complete)
             let duration = (date now) - $start
 
             if $result.exit_code == 28 {

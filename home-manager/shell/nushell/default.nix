@@ -1,4 +1,4 @@
-{pkgs, inputs, ...}:
+{pkgs, inputs, lib, ...}:
 
 {
   programs.nushell = {
@@ -23,10 +23,11 @@
         file_format = "sqlite";
       };
     };
-    extraConfig = ''
+    extraConfig = lib.mkAfter ''
       source ${./init.nu}
       source ${./function.nu}
       source ${./nu-script/proxy.nu}
+      $env.config.completions.algorithm = "fuzzy"
     '';
     # configFile.text = ''
     #   $env.config = {

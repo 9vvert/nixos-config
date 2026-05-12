@@ -16,7 +16,7 @@
     taplo
 
     # CSV / TSV
-    xsv
+    qsv
 
     # format / lint
     prettier

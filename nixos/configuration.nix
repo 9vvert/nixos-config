@@ -186,7 +186,6 @@
       fcitx5-rime
       qt6Packages.fcitx5-configtool
       fcitx5-rime
-      fcitx5-mozc-ut
 
       fcitx5-nord 
       fcitx5-rose-pine

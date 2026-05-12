@@ -25,6 +25,8 @@
     };
     extraConfig = ''
       source ${./init.nu}
+      source ${./function.nu}
+      source ${./nu-script/dae_proxy.nu}
     '';
     # configFile.text = ''
     #   $env.config = {

@@ -7,8 +7,9 @@
     lla = "exa -la";
     system-rebuild = "sudo nixos-rebuild switch --flake";
     home-rebuild = "home-manager switch --flake";
-    proxy_start = "sudo systemctl start dae";
-    proxy_stop = "sudo systemctl stop dae";
-    proxy_restart = "sudo systemctl restart dae";
+    start_proxy = "sudo systemctl start dae";
+    stop_proxy = "sudo systemctl stop dae";
+    restart_proxy = "sudo systemctl restart dae";
+    stat_proxy = "sudo systemctl restart dae";
   };
 }

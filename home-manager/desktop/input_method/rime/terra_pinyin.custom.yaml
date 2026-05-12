@@ -2,6 +2,7 @@ patch:
   menu/page_size: 9
   translator/spelling_hints: 0
 
+
   # switches:
     # - name: ascii_mode
     #   reset: 0

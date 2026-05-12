@@ -1,6 +1,11 @@
 {pkgs, inputs, lib, ...}:
 
 {
+
+  programs.carapace = {   # shell completions
+    enable = true;
+    enableNushellIntegration = true;
+  };
   programs.nushell = {
     enable = true;
     
@@ -27,32 +32,12 @@
       source ${./init.nu}
       source ${./function.nu}
       source ${./nu-script/proxy.nu}
-      $env.config.completions.algorithm = "fuzzy"
     '';
-    # configFile.text = ''
-    #   $env.config = {
-    #     show_banner: false
-    #     edit_mode: emacs
-
-    #     history: {
-    #       max_size: 10000
-    #       sync_on_enter: true
-    #       file_format: "sqlite"
-    #     }
-
-    #     completions: {
-    #       quick: true
-    #       partial: true
-    #       algorithm: "fuzzy"
-    #     }
-    #   }
-    # '';
   };
 
   home.packages = with pkgs; [
     nushell
     nufmt   # formatter for nushell
     starship
-    carapace  # shell completion
   ];
 }

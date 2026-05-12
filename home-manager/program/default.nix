@@ -5,7 +5,8 @@
     ./data
     ./java
     ./nix
-    ./python
+    ./script
+    ./front_end
     ./rust
   ];
 }

@@ -3,9 +3,14 @@
 {
   programs.emacs = {
     enable = true;
-    package = pkgs.emacs;  # replace with pkgs.emacs-gtk, or a version provided by the community overlay if desired.
+    package = pkgs.emacs-pgtk;  
+    
     extraConfig = ''
+      (setq inhibit-startup-screen t)   ; disable welcom message
       (setq standard-indent 2)
+      (setq make-backup-files nil)      ; disable xxx.txt~ 
+      (setq auto-save-default nil)      ; disable #xxx.txt#
+      (global-display-line-numbers-mode 1)  ; enable line number
     '';
   };
 }

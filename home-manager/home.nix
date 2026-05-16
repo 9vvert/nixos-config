@@ -20,7 +20,6 @@
     ./desktop/niri
     ./desktop/quickshell
     ./desktop/input_method
-    ./desktop/theme-sync
     ./terminal
     ./shell
     ./ai/agent

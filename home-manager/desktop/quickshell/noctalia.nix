@@ -111,7 +111,17 @@
             ];
           };
         };
-        colorSchemes.predefinedScheme = "Nord";
+        colorSchemes = {
+          darkMode = true;
+          generationMethod = "tonal-spot";
+          manualSunrise = "06:30";
+          manualSunset = "18:30";
+          monitorForColors = "";
+          predefinedScheme = "Nord";
+          schedulingMode = "off";
+          syncGsettings = true;
+          useWallpaperColors = false;
+        };
         general = {
           # avatarImage = "/home/drfoobar/.face";	# todo
           radiusRatio = 1.0;  # shape of workspace unit; bar corner
@@ -120,6 +130,41 @@
           monthBeforeDay = true;
           name = "Marseille, France";
         };
+        templates = {
+          activeTemplates = [
+            {
+              enabled = true;
+              id = "fuzzel";
+            }
+          ];
+          enableUserTheming = false;
+        };
       };
+  };
+
+  xdg.configFile."fuzzel/fuzzel.ini" = {
+    force = true;
+    text = ''
+      include=~/.config/fuzzel/themes/noctalia
+
+      [main]
+      font=Sans:size=13
+      dpi-aware=auto
+      terminal=ghostty -e
+      prompt="> "
+      icons-enabled=yes
+      fields=filename,name,generic,keywords
+      width=42
+      lines=12
+      horizontal-pad=18
+      vertical-pad=12
+      inner-pad=8
+      layer=overlay
+
+      [border]
+      width=1
+      radius=8
+      selection-radius=6
+    '';
   };
 }

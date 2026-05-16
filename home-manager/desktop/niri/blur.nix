@@ -26,14 +26,5 @@ in
         }
     }
 
-    layer-rule {
-        match namespace="^launcher$"
-        opacity 0.9
-        geometry-corner-radius 14
-
-        background-effect {
-            blur true
-        }
-    }
   '';
 }

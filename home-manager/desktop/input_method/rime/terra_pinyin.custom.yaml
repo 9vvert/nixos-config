@@ -1,16 +1,17 @@
 patch:
   menu/page_size: 9
   translator/spelling_hints: 0
-
-
-  # switches:
-    # - name: ascii_mode
-    #   reset: 0
-    #   states: [ 中文, 西文 ]
-    # - name: full_shape
-    #   states: [ 半角, 全角 ]
-    # - name: simplification
-    #   reset: 1
-    #   states: [ 漢字, 汉字 ]
-    # - name: ascii_punct
-    #   states: [ 。，, ．， ]
+  engine/translators:
+    - punct_translator
+    - table_translator@custom_phrase
+    - script_translator
+  switches:
+    - name: full_shape
+      reset: 0
+      states: [ 半角, 全角 ]
+    - name: simplification
+      reset: 1
+      states: [ 漢字, 汉字 ]
+    - name: ascii_punct
+      reset: 0
+      states: [ 。，, ．， ]

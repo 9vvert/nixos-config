@@ -25,10 +25,8 @@
       url = "github:nix-community/nixvim/nixos-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    pyghidra-mcp = {
-      url = "github:9vvert/pyghidra-mcp";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    pyghidra-mcp.url =  "github:9vvert/pyghidra-mcp";
+    
     home-manager = {
           url = "github:nix-community/home-manager/release-25.11";
             # The `follows` keyword in inputs is used for inheritance.

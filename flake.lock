@@ -315,6 +315,22 @@
         "type": "github"
       }
     },
+    "nixpkgs_4": {
+      "locked": {
+        "lastModified": 1778869304,
+        "narHash": "sha256-30sZNZoA1cqF5JNO9fVX+wgiQYjB7HJqqJ4ztCDeBZE=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "d233902339c02a9c334e7e593de68855ad26c4cb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixvim": {
       "inputs": {
         "flake-parts": "flake-parts_2",
@@ -406,6 +422,24 @@
         "type": "github"
       }
     },
+    "pyghidra-mcp": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_4"
+      },
+      "locked": {
+        "lastModified": 1779033349,
+        "narHash": "sha256-rxpWdWkAqJlKA4vgz8tDZXAepVSxOEOIAUOoSHHInkM=",
+        "owner": "9vvert",
+        "repo": "pyghidra-mcp",
+        "rev": "c9f52b4bf02537832f362380de39223433cc4309",
+        "type": "github"
+      },
+      "original": {
+        "owner": "9vvert",
+        "repo": "pyghidra-mcp",
+        "type": "github"
+      }
+    },
     "quickshell": {
       "inputs": {
         "nixpkgs": [
@@ -436,6 +470,7 @@
         "nixpkgs-unstable": "nixpkgs-unstable",
         "nixvim": "nixvim",
         "noctalia": "noctalia",
+        "pyghidra-mcp": "pyghidra-mcp",
         "quickshell": "quickshell"
       }
     },

@@ -1,3 +1,10 @@
 patch:
   schema_list:
     - schema: terra_pinyin
+  ascii_composer/switch_key:
+    Caps_Lock: clear
+    Control_L: noop
+    Control_R: noop
+    Eisu_toggle: clear
+    Shift_L: commit_text
+    Shift_R: commit_text

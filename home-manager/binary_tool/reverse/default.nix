@@ -2,7 +2,10 @@
 
 {
   home.packages = with pkgs; [
-    ghidra
+    # ghidra
+    inputs.nixpkgs-unstable.legacyPackages.${pkgs.system}.ghidra
+    
+    inputs.pyghidra-mcp.packages.${pkgs.system}.default
     cutter
   ];
 }

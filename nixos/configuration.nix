@@ -184,6 +184,10 @@
     };
   };
 
+  fonts.packages = with pkgs; [
+    nerd-fonts.jetbrains-mono
+  ];
+
 
   # input method
   i18n.inputMethod = {

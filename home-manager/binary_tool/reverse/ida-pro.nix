@@ -4,9 +4,10 @@ let
   base = pkgs.appimageTools.defaultFhsEnvArgs;
 
   Ida_FhsApp = pkgs.buildFHSEnv (base // {
-    # NOTE: this is only a wrapper
     name = "ida9";
 
+    # this is just a wrapper, which will be made a binary under {fhs}/bin
+    # then it calls runScript
     targetPkgs = pkgs:
       (base.targetPkgs pkgs) ++ (with pkgs; [
         qt6.qtbase
@@ -45,25 +46,26 @@ let
         pulseaudio
       ]);
 
+    # set environment, like QT_QPA_PLATFORM
     profile = ''
       export FHS=1
       export QT_QPA_PLATFORM=xcb
     '';
 
-    runScript = pkgs.writeShellScript "run-my-app" ''
+    runScript = pkgs.writeShellScript "run-ida9" ''
       cd /opt/ida9
-      QT_QPA_PLATFORM=xcb ./ida
+      exec ./ida "$@"
     '';
   });
 
   Ida_FhsDesktop = pkgs.makeDesktopItem {
-    name = "Ida Pro 9";
-    desktopName = "Ida Pro 9";
-    exec = "${Ida_FhsApp}/bin/ida9";
+    name = "ida9";
+    desktopName = "IDA Pro 9";
+    exec = "${Ida_FhsApp}/bin/ida9 %F";
     icon = "applications-system";
     terminal = false;
     type = "Application";
-    categories = [ "Utility" ];
+    categories = [ "Development" "Debugger" ];
   };
 
 in

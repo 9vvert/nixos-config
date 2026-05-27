@@ -73,6 +73,67 @@
       wayland-utils fastfetch python314 lua zed xwayland-satellite
       wl-clipboard clash-verge-rev telegram-desktop
       home-manager kmonad
+
+      # Create FHS environment
+      (let base = pkgs.appimageTools.defaultFhsEnvArgs; in
+        pkgs.buildFHSEnv (base // {
+        name = "fhs";
+        targetPkgs = pkgs:
+          # pkgs.buildFHSEnv provides only a minimal FHS environment,
+          # lacking many basic packages needed by most software.
+          # Therefore, we need to add them manually.
+          #
+          # pkgs.appimageTools provides basic packages required by most software.
+          (base.targetPkgs pkgs) ++ (with pkgs; [
+            pkg-config
+            ncurses
+            # Feel free to add more packages here if needed.
+            # Qt runtime
+            qt6.qtbase
+            qt6.qtwayland
+            qt6.qtsvg
+
+            # Common GUI/runtime libs
+            glib
+            dbus
+            fontconfig
+            freetype
+            libGL
+            mesa
+            
+            # xrog
+            xorg.libXext
+            xorg.libXrender
+            xorg.libxcb
+            xorg.libXi
+            xorg.libXcursor
+            xorg.libXrandr
+            xorg.libXfixes
+            xorg.libxkbfile
+            libxkbcommon
+
+            # Qt xcb platform plugin dependencies
+            libxcb
+            libxcb-util
+            libxcb-cursor
+            libxcb-image
+            libxcb-keysyms
+            libxcb-render-util
+            libxcb-wm
+
+            # Often useful
+            zlib
+            openssl
+            curl
+            alsa-lib
+            pulseaudio
+          ]
+        );
+        profile = "export FHS=1";
+        runScript = "bash";
+        extraOutputsToInstall = ["dev"];
+      }))
+
     ];
     variables.EDITOR = "vim";
   };

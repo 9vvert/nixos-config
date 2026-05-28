@@ -44,8 +44,8 @@
         ];
         center = [
           {
-            formatHorizontal = "%-m.%-d %a %H:%M";
-            formatVertical = "%-m.%-d\n%a\n%H\n%M";
+            formatHorizontal = "M.d ddd HH:mm";
+            formatVertical = "M.d\nddd\nHH\nmm";
             id = "Clock";
             useMonospacedFont = true;
             usePrimaryColor = true;
@@ -125,7 +125,6 @@
   };
 
   noctaliaSettingsSeed = pkgs.writeText "noctalia-settings-seed.json" (builtins.toJSON noctaliaSettings);
-  noctaliaCenterWidgets = pkgs.writeText "noctalia-center-widgets.json" (builtins.toJSON noctaliaSettings.bar.widgets.center);
 in {
   imports = [
     inputs.noctalia.homeModules.default
@@ -150,7 +149,7 @@ in {
     settings_file="$settings_dir/settings.json"
 
     $DRY_RUN_CMD mkdir -p "$settings_dir"
-    
+
     # If that symlink points into /nix/store, it means Home Manager previously managed it as an immutable Nix-store file.
     if [ -L "$settings_file" ]; then
       target="$(readlink "$settings_file")"
@@ -161,9 +160,11 @@ in {
           $DRY_RUN_CMD chmod u+w "$settings_file"
           ;;
       esac
+    # otherwise overwrite it.
     else
       $DRY_RUN_CMD cp ${noctaliaSettingsSeed} "$settings_file"
       $DRY_RUN_CMD chmod u+w "$settings_file"
+    fi
   '';
 
   xdg.configFile."fuzzel/fuzzel.ini" = {

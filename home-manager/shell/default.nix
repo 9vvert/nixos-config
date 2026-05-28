@@ -1,9 +1,8 @@
-{pkgs, inputs, ...}:
-
-{
+{...}: {
   imports = [
     ./base
     ./nushell
+    ./starship
     # ./zsh
   ];
 }

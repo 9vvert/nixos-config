@@ -60,9 +60,9 @@ let
 
   Ida_FhsDesktop = pkgs.makeDesktopItem {
     name = "ida9";
-    desktopName = "IDA Pro 9";
+    desktopName = "IDA Professional 9.2";
     exec = "${Ida_FhsApp}/bin/ida9 %F";
-    icon = "applications-system";
+    icon = "/opt/ida9/appico.png";
     terminal = false;
     type = "Application";
     categories = [ "Development" "Debugger" ];

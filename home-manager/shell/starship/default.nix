@@ -12,7 +12,7 @@
       add_newline = false;
       line_break.disabled = true;
 
-      format = "$directory [<](yellow)$git_branch[|](yellow)$git_status[>](yellow)\n[\\[](bold green)$username[@](green)$hostname[\\]](bold green)$character";
+      format = "$directory [<](yellow)$git_branch$git_status[>](yellow)\n[\\[](bold green)$username[@](green)$hostname[\\]](bold green)$character";
 
 
       directory = {
@@ -42,11 +42,6 @@
       git_status = {
         format = "[$all_status$ahead_behind]($style)";
         style = "yellow";
-        modified = "M";
-        staged = "S";
-        untracked = "U";
-        ahead = "A";
-        behind = "B";
       };
 
       character = {

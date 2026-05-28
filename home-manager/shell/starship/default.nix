@@ -12,7 +12,14 @@
       add_newline = false;
       line_break.disabled = true;
 
-      format = "$username@$hostname$git_branch$git_status$character";
+      format = "$directory [<](yellow)$git_branch[|](yellow)$git_status[>](yellow)\n[\\[](bold green)$username[@](green)$hostname[\\]](bold green)$character";
+
+
+      directory = {
+        format = "[$path]($style)";
+        style = "bold cyan";
+        truncate_to_repo = false;
+      };
 
       username = {
         show_always = true;
@@ -28,18 +35,23 @@
       };
 
       git_branch = {
-        format = " [$branch]($style)";
+        format = "[$branch]($style)";
         style = "bold yellow";
       };
 
       git_status = {
-        format = "[$all_status$ahead_behind]($style) ";
-        style = "bold red";
+        format = "[$all_status$ahead_behind]($style)";
+        style = "yellow";
+        modified = "M";
+        staged = "S";
+        untracked = "U";
+        ahead = "A";
+        behind = "B";
       };
 
       character = {
-        success_symbol = "[ >](bold green)";
-        error_symbol = "[ >](bold red)";
+        success_symbol = "[>](green) ";
+        error_symbol = "[>](red) ";
       };
     };
   };

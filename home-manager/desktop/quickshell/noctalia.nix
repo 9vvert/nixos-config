@@ -43,12 +43,10 @@
           }
         ];
         center = [
+          
           {
-            id = "NotificationHistory";
-          }
-          {
-            formatHorizontal = "HH:mm";
-            formatVertical = "HH mm";
+            formatHorizontal = "%-m.%-d %a %H:%M";
+            formatVertical = "%-m.%-d\n%a\n%H\n%M";
             id = "Clock";
             useMonospacedFont = true;
             usePrimaryColor = true;
@@ -56,6 +54,9 @@
           {
             id = "ControlCenter";
             useDistroLogo = true;
+          }
+          {
+            id = "NotificationHistory";
           }
           {
             id = "Launcher";

@@ -61,7 +61,7 @@
          shell = ["sh" "-s"];
         when = ''test "$FHS" = 1'';
         command = "printf '|FHS'";
-        format = "[ $output]($style)";
+        format = "[$output]($style)";
         style = "purple";
       };
 

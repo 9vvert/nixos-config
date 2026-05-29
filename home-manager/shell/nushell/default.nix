@@ -29,7 +29,8 @@
       };
     };
     extraConfig = lib.mkAfter ''
-      source ${./init.nu}
+      source ${./app_init.nu}
+      source $(./env_init.nu)
       source ${./function.nu}
       source ${./nu-script/proxy.nu}
     '';

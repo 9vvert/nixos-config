@@ -4,13 +4,26 @@
   programs.niri.settings.binds = {
     "Mod+Shift+Slash".action."show-hotkey-overlay" = [];
 
-    "Mod+U" = {
-      action.spawn = "ghostty";
+    "Mod+I" = {
+      action.spawn = [
+        "ghostty"
+        "--working-directory=home"
+      ];
       "hotkey-overlay".title = "Open a Terminal: Ghostty";
     };
-    "Mod+Ctrl+U" = {
+    "Mod+U" = {
       action.spawn = "fuzzel";
       "hotkey-overlay".title = "Run an Application: fuzzel";
+    };
+    "Mod+Ctrl+U" = {
+      action.spawn = [
+        "noctalia-shell"
+        "ipc"
+        "call"
+        "launcher"
+        "toggle"
+      ];
+      "hotkey-overlay".title = "Open Noctalia Launcher";
     };
     "Super+Alt+L" = {
       action.spawn = "swaylock";

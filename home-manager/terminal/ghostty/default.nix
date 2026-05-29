@@ -9,6 +9,8 @@
   programs.ghostty = {
     enable = true;
     settings = {
+      working-directory = "home";
+      window-inherit-working-directory = true;
       window-decoration = "none";
       gtk-titlebar = false;
       window-show-tab-bar = "never";
@@ -26,7 +28,7 @@
       keybind = [
         "ctrl+o=toggle_tab_overview"
         "shift+enter=text:\x1b\r"
-        
+        "ctrl+super+i=new_window"
       ];
     };
   };

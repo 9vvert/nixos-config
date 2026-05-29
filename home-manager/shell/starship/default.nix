@@ -12,7 +12,7 @@
       add_newline = true;
       line_break.disabled = true;
 
-      format = "$directory( [<](red)$git_branch$git_status[>](red)) ([\\(](purple)\${custom.shell}\${custom.fhs}[\\)](purple))$fill([\\(](yellow)\${custom.venv}[\\)](yellow))\n[\\[](bold green)$username[@](green)$hostname[\\]](bold green)$character";
+      format = "$directory( [<](red)$git_branch$git_status[>](red)) ([\\(](purple)\${custom.shell}\${custom.fhs}[\\)](purple))$fill([\\[](yellow)\${custom.venv}[\\]](yellow))\n[\\[](bold green)$username[@](green)$hostname[\\]](bold green)$character";
 
       git_branch = {
         format = "[$branch]($style)";
@@ -55,6 +55,10 @@
           style = "purple";
       };
 
+      fill = {
+        symbol = " ";
+      };
+
 
       # fhs detect
       custom.fhs = {
@@ -69,7 +73,7 @@
       custom.venv = {
         shell = ["sh"];
         when = ''[ -n "$VIRTUAL_ENV" ]'';
-        command = ''printf '%s' "$VIRTUAL_ENV"'';
+        command = ''printf '%s' "$VIRTUAL_ENV_PROMPT"'';
         format = "[$output]($style)";
         style = "yellow";
       };

@@ -12,7 +12,7 @@
       add_newline = true;
       line_break.disabled = true;
 
-      format = "$directory( [<](red)$git_branch$git_status[>](red))([\(](purple)\${custom.shell}\${custom.fhs}[\)](purple))\n[\\[](bold green)$username[@](green)$hostname[\\]](bold green)$character";
+      format = "$directory( [<](red)$git_branch$git_status[>](red)) ([\\(](purple)\${custom.shell}\${custom.fhs}[\\)](purple))\n[\\[](bold green)$username[@](green)$hostname[\\]](bold green)$character";
 
       git_branch = {
         format = "[$branch]($style)";
@@ -51,7 +51,7 @@
           shell = ["sh" "-s"];
           when = ''[ -n "$STARSHIP_SHELL" ]'';
           command = ''printf '%s' "$STARSHIP_SHELL"'';
-          format = "[ $output]($style)";
+          format = "[$output]($style)";
           style = "purple";
       };
 

@@ -26,6 +26,7 @@
       keybind = [
         "ctrl+o=toggle_tab_overview"
         "shift+enter=text:\x1b\r"
+        
       ];
     };
   };

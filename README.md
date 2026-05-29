@@ -1,1 +1,2 @@
-My NixOS config
+## My NixOS config
+Under construction

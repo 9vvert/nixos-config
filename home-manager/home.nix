@@ -26,6 +26,7 @@
     ./binary_tool
     ./editor
     ./program
+    ./game
   ];
 
   nixpkgs = {

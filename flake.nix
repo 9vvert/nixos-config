@@ -3,6 +3,8 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
+    # nixpkgs.url = "git+https://mirrors.tuna.tsinghua.edu.cn/git/nixpkgs.git?ref=nixos-25.11&shallow=1";
+    
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     quickshell = {
       # add ?ref=<tag> to track a tag
@@ -35,7 +37,6 @@
             # to avoid problems caused by different versions of nixpkgs.
             inputs.nixpkgs.follows = "nixpkgs";
         };
-    # nixpkgs.url = "git+https://mirrors.tuna.tsinghua.edu.cn/git/nixpkgs.git?ref=nixos-25.05&shallow=1";
     daeuniverse.url = "github:daeuniverse/flake.nix";
     codex-cli-nix.url = "github:sadjow/codex-cli-nix";
 	

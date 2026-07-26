@@ -72,7 +72,7 @@
     systemPackages = with pkgs; [ vim neovim git google-chrome wget gcc
       wayland-utils fastfetch python314 lua zed xwayland-satellite
       wl-clipboard clash-verge-rev telegram-desktop
-      home-manager kmonad
+      home-manager kmonad busybox
 
       # Create FHS environment
       (let base = pkgs.appimageTools.defaultFhsEnvArgs; in

@@ -5,6 +5,10 @@
     nethack
     angband
     tome4
-    steam
   ];
+
+  imports = [
+    ./steam
+  ];
+  
 }

@@ -46,6 +46,10 @@
     config = {
       # Disable if you don't want unfree packages
       allowUnfree = true;
+      allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+        "steam"
+        "steam-unwrapped"
+      ];
     };
   };
 
@@ -162,6 +166,7 @@
   networking = {
     hostName = "nixos";
 		networkmanager.enable = true;
+    nameservers = [ "8.8.8.8" "1.1.1.1" "223.5.5.5" "130.161.158.4" "130.161.33.17" ];
 	};
 
   time.timeZone = "Asia/Shanghai";

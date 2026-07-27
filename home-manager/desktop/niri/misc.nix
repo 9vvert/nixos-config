@@ -10,6 +10,6 @@
       "honor-xdg-activation-with-invalid-serial" = [];
     };
 
-    prefer-no-csd = false;
+    prefer-no-csd = true;
   };
 }

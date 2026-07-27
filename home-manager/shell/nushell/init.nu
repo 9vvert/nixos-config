@@ -1,4 +1,3 @@
-
-if ("~/.venv14" | path exists) {
+try { 
     overlay use "~/.venv14/bin/activate.nu"
-}
+} catch { |err| $err.msg }

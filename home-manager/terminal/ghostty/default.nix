@@ -11,6 +11,8 @@
     settings = {
       working-directory = "home";
       window-inherit-working-directory = true;
+      tab-inherit-working-directory = true;
+
       window-decoration = "none";
       gtk-titlebar = false;
       window-show-tab-bar = "never";

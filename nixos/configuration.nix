@@ -6,7 +6,16 @@
   config,
   pkgs,
   ...
-}: {
+}: let 
+  niriNoNuCompletions =
+    inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.niri-unstable.overrideAttrs (old: {
+      postInstall = (old.postInstall or "") + ''
+        rm -f $out/share/nushell/vendor/autoload/niri.nu
+      '';
+    });
+in 
+
+{
   # You can import other NixOS modules here
   imports = [
     # If you want to use modules your own flake exports (from modules/nixos):
@@ -218,7 +227,9 @@
 
     niri = {
       enable = true;
-      package = inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.niri-unstable;
+      # Here we use our overide version of niri to prevent the generation of niri.nu, 
+      # which will result in some "niri help" command mixed in our nushell fuzzy completion.
+      package = niriNoNuCompletions;
     };
 
     steam = {

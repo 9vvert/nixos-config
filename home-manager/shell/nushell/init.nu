@@ -1,3 +1,5 @@
-try { 
-    overlay use "~/.venv14/bin/activate.nu"
-} catch { |err| $err.msg }
+# try { 
+    
+# } catch { |err| $err.msg }
+
+overlay use "~/.venv14/bin/activate.nu"

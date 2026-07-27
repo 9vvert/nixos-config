@@ -1,5 +1,12 @@
 { pkgs, inputs, ... }:
-
+let
+  niriNoNuCompletions =
+    inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.niri-unstable.overrideAttrs (old: {
+      postInstall = (old.postInstall or "") + ''
+        rm -f $out/share/nushell/vendor/autoload/niri.nu
+      '';
+    });
+in
 {
   imports = [
     # if there is no inputs.niri.homeModules.niri, it need to be imported in home.nix
@@ -16,10 +23,7 @@
 
   programs.niri = {
     enable = true; # already defined in inputs.niri.homeModules.niri
-    # use niri-unstable (to enable blur)
-    # Here we use our overide version of niri to prevent the generation of niri.nu, 
-    # which will result in some "niri help" command mixed in our nushell fuzzy completion.
-    package = inputs.niriNoNuCompletions;
+    package = niriNoNuCompletions;
   };
 
   home.packages = with pkgs; [

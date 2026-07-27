@@ -5,5 +5,6 @@
     ./hex
     ./debug
     ./reverse
+    ./pwn
   ];
 }

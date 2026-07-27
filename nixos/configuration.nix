@@ -258,11 +258,54 @@
       "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ];
     };
   };
+  fonts = {
+    packages = with pkgs; [
+      nerd-fonts.jetbrains-mono
 
-  fonts.packages = with pkgs; [
-    nerd-fonts.jetbrains-mono
-  ];
+      noto-fonts
+      noto-fonts-cjk-sans
+      noto-fonts-cjk-serif
+      noto-fonts-emoji
 
+      # Maple Mono (Ligature TTF unhinted)
+      maple-mono.truetype
+      # Maple Mono NF (Ligature unhinted)
+      maple-mono.NF-unhinted
+      # Maple Mono NF CN (Ligature unhinted)
+      maple-mono.NF-CN-unhinted
+    ];
+
+    fontconfig = {
+      enable = true;
+
+      defaultFonts = {
+        sansSerif = [
+          "Maple Mono NF CN"
+          "Noto Sans"
+          "Noto Sans CJK SC"
+          "Noto Color Emoji"
+        ];
+
+        serif = [
+          "Maple Mono NF CN"
+          "Noto Serif"
+          "Noto Serif CJK SC"
+          "Noto Color Emoji"
+        ];
+
+        monospace = [
+          "Maple Mono NF CN"
+          "Noto Sans Mono CJK SC"
+          "JetBrainsMono Nerd Font"
+          "Noto Color Emoji"
+        ];
+
+        emoji = [
+          "Noto Color Emoji"
+        ];
+      };
+    };
+  };
 
   # input method
   i18n.inputMethod = {

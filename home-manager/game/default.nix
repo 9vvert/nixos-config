@@ -8,7 +8,7 @@
   ];
 
   imports = [
-    ./steam
+    ./steam.nix
   ];
   
 }

@@ -25,7 +25,7 @@
     ./ai/agent
     ./binary_tool
     ./editor
-    ./program
+    ./programming
     ./game
   ];
 

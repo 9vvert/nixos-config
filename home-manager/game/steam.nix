@@ -9,4 +9,8 @@
       proton-ge-bin
     ];
   };
+
+  home.packages = with pkgs; [
+    steam
+  ];
 }

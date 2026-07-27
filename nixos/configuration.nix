@@ -265,7 +265,7 @@
       noto-fonts
       noto-fonts-cjk-sans
       noto-fonts-cjk-serif
-      noto-fonts-emoji
+      noto-fonts-color-emoji
 
       # Maple Mono (Ligature TTF unhinted)
       maple-mono.truetype
@@ -280,23 +280,23 @@
 
       defaultFonts = {
         sansSerif = [
-          "Maple Mono NF CN"
           "Noto Sans"
           "Noto Sans CJK SC"
+          "Maple Mono NF CN"
           "Noto Color Emoji"
         ];
 
         serif = [
-          "Maple Mono NF CN"
           "Noto Serif"
           "Noto Serif CJK SC"
+          "Maple Mono NF CN"
           "Noto Color Emoji"
         ];
 
         monospace = [
           "Maple Mono NF CN"
-          "Noto Sans Mono CJK SC"
           "JetBrainsMono Nerd Font"
+          "Noto Sans Mono CJK SC"   
           "Noto Color Emoji"
         ];
 

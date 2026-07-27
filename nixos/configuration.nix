@@ -220,6 +220,15 @@
       enable = true;
       package = inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.niri-unstable;
     };
+
+    steam = {
+      enable = true;
+      remotePlay.openFirewall = true;
+      dedicatedServer.openFirewall = true;
+      extraCompatPackages = with pkgs; [
+        proton-ge-bin
+      ];
+    };
   };
 
   # TODO: Configure your system-wide user settings (groups, etc), add more users as needed.

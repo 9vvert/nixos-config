@@ -4,11 +4,11 @@
   home.packages = with pkgs; [
     nethack
     angband
-    tome4
-  ];
 
-  imports = [
-    ./steam.nix
+    # steam related
+    protonup-qt
+    protontricks
+    mangohud
+    gamescope
   ];
-  
 }

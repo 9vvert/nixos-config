@@ -9,5 +9,7 @@
     debug = {
       "honor-xdg-activation-with-invalid-serial" = [];
     };
+
+    prefer-no-csd = false;
   };
 }

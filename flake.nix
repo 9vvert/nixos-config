@@ -28,6 +28,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     pyghidra-mcp.url =  "github:9vvert/pyghidra-mcp";
+    pwndbg.url = "github:pwndbg/pwndbg";
     
     home-manager = {
           url = "github:nix-community/home-manager/release-25.11";

@@ -8,9 +8,9 @@
     # ida
     
     # ghidra
-    inputs.nixpkgs-unstable.legacyPackages.${pkgs.system}.ghidra
+    inputs.nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.ghidra
     
-    inputs.pyghidra-mcp.packages.${pkgs.system}.default
+    inputs.pyghidra-mcp.packages.${pkgs.stdenv.hostPlatform.system}.default
     cutter
   ];
 }

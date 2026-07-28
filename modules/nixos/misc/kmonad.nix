@@ -2,7 +2,6 @@
 { config, pkgs, ... }:
 
 {
-
   services.kmonad = {
     enable = true;
 

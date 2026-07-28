@@ -9,24 +9,7 @@
 }: {
   # You can import other home-manager modules here
   imports = [
-    # If you want to use modules your own flake exports (from modules/home-manager):
-    # inputs.self.homeManagerModules.example
-
-    # Or modules exported from other flakes (such as nix-colors):
-    # inputs.nix-colors.homeManagerModules.default
-
-    # You can also split up your configuration and import pieces of it here:
-    # ./nvim.nix
-    ./desktop/niri
-    ./desktop/quickshell
-    ./desktop/input_method
-    ./terminal
-    ./shell
-    ./ai/agent
-    ./binary_tool
-    ./editor
-    ./programming
-    ./game
+    ../modules/home-manager
   ];
 
   nixpkgs = {
@@ -86,58 +69,9 @@
 
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
-    # here is some command line tools I use frequently
-    # feel free to add your own or remove some of them
-
-    # code/editor
-    vscode
-
-    neofetch
-    
     yazi
 
     # archives
-    zip
-    xz
-    unzip
-    p7zip
-    ghostty
-    fuzzel
-
-    # utils
-    ripgrep # recursively searches directories for a regex pattern
-    jq # A lightweight and flexible command-line JSON processor
-    yq-go # yaml processor https://github.com/mikefarah/yq
-    eza # A modern replacement for ‘ls’
-    fzf # A command-line fuzzy finder
-
-
-    # image/video
-    loupe
-    kdePackages.gwenview
-    qqmusic
-    playerctl   # MediaMini need this? 
-
-
-    # networking tools
-    mtr # A network diagnostic tool
-    iperf3
-    dnsutils  # `dig` + `nslookup`
-    ldns # replacement of `dig`, it provide the command `drill`
-    aria2 # A lightweight multi-protocol & multi-source command-line download utility
-    socat # replacement of openbsd-netcat
-    nmap # A utility for network discovery and security auditing
-    ipcalc  # it is a calculator for the IPv4/v6 addresses
-
-    # misc
-    file
-    which
-    tree
-    gnused
-    gnutar
-    gawk
-    zstd
-    gnupg
 
     obsidian
 
@@ -190,39 +124,6 @@
     
   };
 
-
-  # programs.niri = {
-  #   enable = true;
-  #   # ----------------------------------------------------------------
-  #   # ADD THIS BLOCK:
-  #   # Overrides the niri derivation to provide the missing XKB paths
-  #   # and fix the tests during the build.
-  #   # ----------------------------------------------------------------
-
-  #   package = pkgs.niri.overrideAttrs (old: {
-  #     nativeCheckInputs = (old.nativeCheckInputs or []) ++ [ pkgs.xkeyboard_config ];
-  #     preCheck = (old.preCheck or "") + ''
-  #       export XKB_CONFIG_ROOT="${pkgs.xkeyboard_config}/share/X11/xkb"
-  #     '';
-
-  #     # NOTE: If tests STILL fail for some other reason, you can 
-  #     # completely skip the testing phase by uncommenting the line below:
-  #     # doCheck = false; 
-  #   });
-  #   settings = {
-  #       # ...
-  #       spawn-at-startup = [
-  #         {
-  #           command = [
-  #             "noctalia-shell"
-  #           ];
-  #         }
-  #       ];
-  #   };
-  # };
-
-  # if have already added to configuration.nix, then there is no need to enable there
-
   programs.bash = {
     enable = true;
     enableCompletion = true;
@@ -239,18 +140,7 @@
     };
   };
 
-  xdg.mimeApps = {
-    enable = true;
-    defaultApplications = {
-      "image/png" = ["org.gnome.Loupe.desktop"];
-      "image/jpeg" = ["org.gnome.Loupe.desktop"];
-      "image/webp" = ["org.gnome.Loupe.desktop"];
-      "image/gif" = ["org.gnome.Loupe.desktop"];
-      "image/bmp" = ["org.gnome.Loupe.desktop"];
-      "image/tiff" = ["org.gnome.Loupe.desktop"];
-      "image/svg+xml" = ["org.gnome.Loupe.desktop"];
-    };
-  };
+  
 
   # This value determines the home Manager release that your
   # configuration is compatible with. This helps avoid breakage

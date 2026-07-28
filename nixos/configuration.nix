@@ -6,31 +6,12 @@
   config,
   pkgs,
   ...
-}: let 
-  niriNoNuCompletions =
-    inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.niri-unstable.overrideAttrs (old: {
-      postInstall = (old.postInstall or "") + ''
-        rm -f $out/share/nushell/vendor/autoload/niri.nu
-      '';
-    });
-in 
+}: 
 
 {
-  # You can import other NixOS modules here
   imports = [
-    # If you want to use modules your own flake exports (from modules/nixos):
-    # inputs.self.nixosModules.example
-
-    # Or modules from other flakes (such as nixos-hardware):
-    # inputs.hardware.nixosModules.common-cpu-amd
-    # inputs.hardware.nixosModules.common-ssd
-
-    # You can also split up your configuration and import pieces of it here:
-    # ./users.nix
-    ./kmonad.nix
-
-    # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
+    ../modules/nixos
   ];
 
   nixpkgs = {
@@ -81,76 +62,6 @@ in
     channel.enable = false;
   };
 
-  environment = {
-    systemPackages = with pkgs; [ vim neovim git google-chrome wget gcc
-      wayland-utils fastfetch python314 lua zed xwayland-satellite
-      wl-clipboard clash-verge-rev telegram-desktop
-      home-manager kmonad busybox
-
-      # Create FHS environment
-      (let base = pkgs.appimageTools.defaultFhsEnvArgs; in
-        pkgs.buildFHSEnv (base // {
-        name = "fhs";
-        targetPkgs = pkgs:
-          # pkgs.buildFHSEnv provides only a minimal FHS environment,
-          # lacking many basic packages needed by most software.
-          # Therefore, we need to add them manually.
-          #
-          # pkgs.appimageTools provides basic packages required by most software.
-          (base.targetPkgs pkgs) ++ (with pkgs; [
-            pkg-config
-            ncurses
-            # Feel free to add more packages here if needed.
-            # Qt runtime
-            qt6.qtbase
-            qt6.qtwayland
-            qt6.qtsvg
-
-            # Common GUI/runtime libs
-            glib
-            dbus
-            fontconfig
-            freetype
-            libGL
-            mesa
-            
-            # xrog
-            xorg.libXext
-            xorg.libXrender
-            xorg.libxcb
-            xorg.libXi
-            xorg.libXcursor
-            xorg.libXrandr
-            xorg.libXfixes
-            xorg.libxkbfile
-            libxkbcommon
-
-            # Qt xcb platform plugin dependencies
-            libxcb
-            libxcb-util
-            libxcb-cursor
-            libxcb-image
-            libxcb-keysyms
-            libxcb-render-util
-            libxcb-wm
-
-            # Often useful
-            zlib
-            openssl
-            curl
-            alsa-lib
-            pulseaudio
-          ]
-        );
-        profile = "export FHS=1";
-        runScript = "bash";
-        extraOutputsToInstall = ["dev"];
-      }))
-
-    ];
-    variables.EDITOR = "vim";
-  };
-
   boot.loader = {
     timeout = 30;
     grub = {
@@ -171,76 +82,21 @@ in
 		};
   };
 
-  # network
-  networking = {
-    hostName = "nixos";
-		networkmanager.enable = true;
-    nameservers = [ "8.8.8.8" "1.1.1.1" "223.5.5.5" "130.161.158.4" "130.161.33.17" ];
-	};
-
   time.timeZone = "Asia/Shanghai";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
   console = {
     font = "Lat2-Terminus16";
-
-  #  keyMap = "us";
+    #  keyMap = "us";
     useXkbConfig = true; # use xkb.options in tty.
   };
 
   services = {
-    xserver.desktopManager.runXdgAutostartIfNone = true;
-    desktopManager.plasma6.enable = true;
-		displayManager.sddm = {
-      enable = true;
-			wayland.enable = true;
-		};
     # Enable CUPS to print documents.
     printing.enable = true;
     # Enable touchpad support (enabled default in most desktopManager).
     libinput.enable = true;
-
-    openssh.enable = true;
-    dae = {
-      enable = true;
-      configFile = "/etc/dae/config.dae";
-    };
 	};
-
-  # Keep dae.service available for manual use, but do not start it at boot.
-  systemd.services = {
-    dae.wantedBy = lib.mkForce [];
-  };
-
-  programs = {
-    firefox = {
-      enable = true;
-      policies = {
-        DisableAppUpdate = true;
-        Proxy = {
-          Mode = "none";
-          Locked = true;
-        };
-      };
-    };
-
-    niri = {
-      enable = true;
-      # Here we use our overide version of niri to prevent the generation of niri.nu, 
-      # which will result in some "niri help" command mixed in our nushell fuzzy completion.
-      package = niriNoNuCompletions;
-    };
-
-    steam = {
-      enable = true;
-      remotePlay.openFirewall = true;
-      dedicatedServer.openFirewall = true;
-      extraCompatPackages = with pkgs; [
-        proton-ge-bin
-      ];
-    };
-  };
 
   # TODO: Configure your system-wide user settings (groups, etc), add more users as needed.
   users.users = {
@@ -255,110 +111,6 @@ in
       extraGroups = ["wheel" "networkmanager"];
     };
   };
-
-  # Highly recommended for screen sharing / portals on Wayland:
-  # xdg.portal.enable = true;
-  # xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-  
-  xdg.portal = {
-    enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-
-    config.niri = {
-      default = [ "gtk" ];
-      "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ];
-    };
-  };
-  fonts = {
-    packages = with pkgs; [
-      nerd-fonts.jetbrains-mono
-
-      noto-fonts
-      noto-fonts-cjk-sans
-      noto-fonts-cjk-serif
-      noto-fonts-color-emoji
-
-      # Maple Mono (Ligature TTF unhinted)
-      maple-mono.truetype
-      # Maple Mono NF (Ligature unhinted)
-      maple-mono.NF-unhinted
-      # Maple Mono NF CN (Ligature unhinted)
-      maple-mono.NF-CN-unhinted
-    ];
-
-    fontconfig = {
-      enable = true;
-
-      defaultFonts = {
-        sansSerif = [
-          "Noto Sans"
-          "Noto Sans CJK SC"
-          "Maple Mono NF CN"
-          "Noto Color Emoji"
-        ];
-
-        serif = [
-          "Noto Serif"
-          "Noto Serif CJK SC"
-          "Maple Mono NF CN"
-          "Noto Color Emoji"
-        ];
-
-        monospace = [
-          "Maple Mono NF CN"
-          "JetBrainsMono Nerd Font"
-          "Noto Sans Mono CJK SC"   
-          "Noto Color Emoji"
-        ];
-
-        emoji = [
-          "Noto Color Emoji"
-        ];
-      };
-    };
-  };
-
-  # input method
-  i18n.inputMethod = {
-    enable = true;
-    type = "fcitx5";
-    fcitx5.waylandFrontend = true;
-    fcitx5.addons = with pkgs; [
-      # fcitx5-gtk
-      fcitx5-rime
-      qt6Packages.fcitx5-configtool
-      fcitx5-rime
-
-      fcitx5-nord 
-      fcitx5-rose-pine
-      fcitx5-material-color
-    ];
-  };
-
-
-  security.sudo.extraRules = [
-  {
-    users = [ "woc" ];
-    commands = [
-        {
-          command = "/run/current-system/sw/bin/systemctl start dae.service";
-          options = [ "NOPASSWD" ];
-        }
-        {
-          command = "/run/current-system/sw/bin/systemctl stop dae.service";
-          options = [ "NOPASSWD" ];
-        }
-        {
-          command = "/run/current-system/sw/bin/systemctl restart dae.service";
-          options = [ "NOPASSWD" ];
-        }
-        {
-          command = "/run/current-system/sw/bin/systemctl status dae.service";
-          options = [ "NOPASSWD" ];
-        }
-    ];
-  }
-];
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you

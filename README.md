@@ -17,11 +17,21 @@ Thanks!
 ### Desktop
 - niri
 
-A scrollable-tiling Wayland compositor.
+    A scrollable-tiling Wayland compositor.
 
-- fcitx5
+- noctalia
 
-Chinese input method
+    A customizable desktop shell for wayland.
+
+### input
+
+- fcitx5 + rime
+
+    Input method
+
+- kmonad
+
+    For keymapping
 
 ### AI
 - codex
@@ -57,11 +67,11 @@ Since ida is not a free software, it needs installed in `/opt/ida9`. Then we wil
 ### Terminal & Shell
 - ghostty
 
-My favourite terminal.
+    My favourite terminal.
 
 - nushell
 
-I have been customed to zsh. But this time I am trying something new - nushell!
+    I have been customed to zsh. But this time I am trying something new - nushell!
 
 ### Editor & Programming
 - vscode
@@ -70,16 +80,16 @@ I have been customed to zsh. But this time I am trying something new - nushell!
 
 - nixvim
 
-But my neovim config file has not been fully migrated.
+    But my neovim config file has not been fully migrated.
 
 - programming language
 
-`cxx`, `python`, `rust`, `java`, `lua`, `js/ts`, ...
+    `cxx`, `python`, `rust`, `java`, `lua`, `js/ts`, ...
 
 ### Network
 - dae
 
-A proxy tool based on ebpf.
+    A proxy tool based on ebpf.
 
 - NetworkManager
 

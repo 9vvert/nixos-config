@@ -1,10 +1,11 @@
-{ pkgs, inputs, ... }:
-
 {
+  pkgs,
+  inputs,
+  ...
+}: {
   imports = [
     ./niri.nix
   ];
-
 
   # misc software
   environment.systemPackages = with pkgs; [
@@ -12,7 +13,8 @@
     wayland-utils
     xwayland-satellite
     wl-clipboard
-
+    wl-screenrec
+    libva-utils
     # desktop
     swaybg
     fuzzel
@@ -22,20 +24,20 @@
   services = {
     xserver.desktopManager.runXdgAutostartIfNone = true;
     desktopManager.plasma6.enable = true;
-		displayManager.sddm = {
+    displayManager.sddm = {
       enable = true;
-			wayland.enable = true;
-		};
+      wayland.enable = true;
+    };
   };
 
   # xdg
   xdg = {
     portal = {
       enable = true;
-      extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+      extraPortals = [pkgs.xdg-desktop-portal-gtk];
 
       config.niri = {
-        "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ];
+        "org.freedesktop.impl.portal.FileChooser" = ["gtk"];
       };
     };
   };
@@ -48,6 +50,7 @@
       noto-fonts-cjk-sans
       noto-fonts-cjk-serif
       noto-fonts-color-emoji
+      wqy_microhei
       maple-mono.truetype
       maple-mono.NF-unhinted
       maple-mono.NF-CN-unhinted
@@ -74,7 +77,7 @@
         monospace = [
           "Maple Mono NF CN"
           "JetBrainsMono Nerd Font"
-          "Noto Sans Mono CJK SC"   
+          "Noto Sans Mono CJK SC"
           "Noto Color Emoji"
         ];
 
@@ -82,6 +85,79 @@
           "Noto Color Emoji"
         ];
       };
+
+      # Add font mapping
+      localConf = ''
+        <?xml version="1.0"?>
+        <!DOCTYPE fontconfig SYSTEM "urn:fontconfig:fonts.dtd">
+        <fontconfig>
+          <match target="pattern">
+            <test qual="any" name="family">
+              <string>Microsoft YaHei</string>
+            </test>
+            <edit name="family" mode="prepend" binding="strong">
+              <string>WenQuanYi Micro Hei</string>
+              <string>Noto Sans CJK SC</string>
+            </edit>
+          </match>
+          <match target="pattern">
+            <test qual="any" name="family">
+              <string>微软雅黑</string>
+            </test>
+            <edit name="family" mode="prepend" binding="strong">
+              <string>WenQuanYi Micro Hei</string>
+              <string>Noto Sans CJK SC</string>
+            </edit>
+          </match>
+          <match target="pattern">
+            <test qual="any" name="family">
+              <string>Microsoft YaHei UI</string>
+            </test>
+            <edit name="family" mode="prepend" binding="strong">
+              <string>WenQuanYi Micro Hei</string>
+              <string>Noto Sans CJK SC</string>
+            </edit>
+          </match>
+          <match target="pattern">
+            <test qual="any" name="family">
+              <string>SimHei</string>
+            </test>
+            <edit name="family" mode="prepend" binding="strong">
+              <string>WenQuanYi Micro Hei</string>
+              <string>Noto Sans CJK SC</string>
+            </edit>
+          </match>
+          <match target="pattern">
+            <test qual="any" name="family">
+              <string>黑体</string>
+            </test>
+            <edit name="family" mode="prepend" binding="strong">
+              <string>WenQuanYi Micro Hei</string>
+              <string>Noto Sans CJK SC</string>
+            </edit>
+          </match>
+          <match target="pattern">
+            <test qual="any" name="family">
+              <string>SimSun</string>
+            </test>
+            <edit name="family" mode="prepend" binding="strong">
+              <string>WenQuanYi Micro Hei</string>
+              <string>Noto Sans CJK SC</string>
+              <string>Noto Serif CJK SC</string>
+            </edit>
+          </match>
+          <match target="pattern">
+            <test qual="any" name="family">
+              <string>宋体</string>
+            </test>
+            <edit name="family" mode="prepend" binding="strong">
+              <string>WenQuanYi Micro Hei</string>
+              <string>Noto Sans CJK SC</string>
+              <string>Noto Serif CJK SC</string>
+            </edit>
+          </match>
+        </fontconfig>
+      '';
     };
   };
 }

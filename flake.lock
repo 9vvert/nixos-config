@@ -450,6 +450,23 @@
         "type": "github"
       }
     },
+    "qqmusic-mpris-bridge": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1785337614,
+        "narHash": "sha256-5nFlojvhij6dASC7lsrsMrshaFqV+xLJd84tOkFhTKE=",
+        "path": "/home/woc/repo/qqmusic-mpris-bridge",
+        "type": "path"
+      },
+      "original": {
+        "path": "/home/woc/repo/qqmusic-mpris-bridge",
+        "type": "path"
+      }
+    },
     "quickshell": {
       "inputs": {
         "nixpkgs": [
@@ -483,6 +500,7 @@
         "noctalia": "noctalia",
         "pwndbg": "pwndbg",
         "pyghidra-mcp": "pyghidra-mcp",
+        "qqmusic-mpris-bridge": "qqmusic-mpris-bridge",
         "quickshell": "quickshell"
       }
     },

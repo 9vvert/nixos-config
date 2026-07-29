@@ -30,6 +30,11 @@
     };
     pyghidra-mcp.url =  "github:9vvert/pyghidra-mcp";
     pwndbg.url = "github:pwndbg/pwndbg";
+
+    qqmusic-mpris-bridge = {
+      url = "path:/home/woc/repo/qqmusic-mpris-bridge";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     
     home-manager = {
           url = "github:nix-community/home-manager/release-26.05";

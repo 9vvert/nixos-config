@@ -51,9 +51,14 @@ in {
         wallpaper_scheme = "m3-tonal-spot";
         templates = {
           enable_builtin_templates = true;
-          builtin_ids = [];
+          builtin_ids = [
+            "gtk3"
+            "gtk4"
+          ];
+
           enable_community_templates = false;
           community_ids = [];
+
           user.fuzzel = {
             enabled = true;
             input_path = "templates/fuzzel.ini";
@@ -156,15 +161,15 @@ in {
         audio_visualizer = {
           type = "audio_visualizer";
 
-          width = 56;              # 宽度，范围 8-400
-          bands = 16;              # 柱子数量，范围 2-128
+          width = 56;
+          bands = 16;
 
-          mirrored = false;         # 左右镜像
-          centered = true;         # 从中线向上下跳动
+          mirrored = false;
+          centered = true;
 
           show_when_idle = false;
-          color_1 = "primary";    
-          color_2 = "primary"; 
+          color_1 = "primary";
+          color_2 = "primary";
         };
 
         clock = {

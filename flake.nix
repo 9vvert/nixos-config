@@ -15,7 +15,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     noctalia = {
-      url = "github:noctalia-dev/noctalia-shell";
+      url = "github:noctalia-dev/noctalia";
       inputs.nixpkgs.follows = "nixpkgs";
       # the quick shell has already been tuned with nixpkgs
       # inputs.quickshell.follows = "quickshell";  # Use same quickshell version
@@ -26,7 +26,7 @@
     };
     nixvim = {
       url = "github:nix-community/nixvim/nixos-26.05";
-      # inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     pyghidra-mcp.url =  "github:9vvert/pyghidra-mcp";
     pwndbg.url = "github:pwndbg/pwndbg";

@@ -18,4 +18,30 @@
       "image/svg+xml" = ["org.gnome.Loupe.desktop"];
     };
   };
+
+  xdg.configFile."fuzzel/fuzzel.ini" = {
+    force = true;
+    text = ''
+      include=~/.config/fuzzel/themes/noctalia
+
+      [main]
+      font=Sans:size=13
+      dpi-aware=auto
+      terminal=ghostty -e
+      prompt="> "
+      icons-enabled=yes
+      fields=filename,name,generic,keywords
+      width=42
+      lines=12
+      horizontal-pad=18
+      vertical-pad=12
+      inner-pad=8
+      layer=overlay
+
+      [border]
+      width=1
+      radius=8
+      selection-radius=6
+    '';
+  };
 }

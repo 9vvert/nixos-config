@@ -17,11 +17,10 @@
     };
     "Mod+Ctrl+U" = {
       action.spawn = [
-        "noctalia-shell"
-        "ipc"
-        "call"
+        "noctalia"
+        "msg"
+        "panel-toggle"
         "launcher"
-        "toggle"
       ];
       "hotkey-overlay".title = "Open Noctalia Launcher";
     };

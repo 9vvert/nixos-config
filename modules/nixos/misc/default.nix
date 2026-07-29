@@ -1,5 +1,10 @@
 { lib, pkgs, inputs, ... }:
-
+let
+  firefox152Pkgs = import inputs.nixpkgs25_11 {
+    system = pkgs.stdenv.hostPlatform.system;
+    config.allowUnfree = true;
+  };
+in
 {
   imports = [
     ./kmonad.nix
@@ -11,6 +16,7 @@
 
     firefox = {
       enable = true;
+      package = firefox152Pkgs.firefox;
       policies = {
         DisableAppUpdate = true;
         Proxy = {

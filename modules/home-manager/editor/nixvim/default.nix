@@ -41,6 +41,8 @@ in
   };
 
   programs.nixvim = {
+    nixpkgs.pkgs = pkgs;
+    
     enable = true;
     viAlias = true;
     vimAlias = true;

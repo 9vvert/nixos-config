@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ lib, pkgs, inputs, ... }:
 
 {
   imports = [
@@ -29,4 +29,7 @@
       ];
     };
   };
+
+  # turn off "doc", to prevent bulild failure of python312
+  environment.extraOutputsToInstall = lib.mkForce [ "man" "info" ];
 }

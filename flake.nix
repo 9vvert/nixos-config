@@ -3,8 +3,8 @@
 
   inputs = {
     nixpkgs25_11.url = "github:NixOS/nixpkgs/nixos-25.11";
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
-    # nixpkgs.url = "git+https://mirrors.tuna.tsinghua.edu.cn/git/nixpkgs.git?ref=nixos-25.11&shallow=1";
+    # nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
+    nixpkgs.url = "git+https://mirrors.tuna.tsinghua.edu.cn/git/nixpkgs.git?ref=nixos-26.05&shallow=1";
     
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     quickshell = {
@@ -26,7 +26,7 @@
     };
     nixvim = {
       url = "github:nix-community/nixvim/nixos-26.05";
-      inputs.nixpkgs.follows = "nixpkgs";
+      # inputs.nixpkgs.follows = "nixpkgs";
     };
     pyghidra-mcp.url =  "github:9vvert/pyghidra-mcp";
     pwndbg.url = "github:pwndbg/pwndbg";

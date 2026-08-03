@@ -3,6 +3,6 @@
     ./base
     ./nushell
     ./starship
-    # ./zsh
+    ./zsh
   ];
 }

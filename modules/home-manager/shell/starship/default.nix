@@ -27,6 +27,7 @@
         format = "[$path]($style)";
         style = "bold cyan";
         truncate_to_repo = false;
+        truncation_length = 8;
       };
 
       username = {

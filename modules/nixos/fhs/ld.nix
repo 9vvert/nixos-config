@@ -1,8 +1,15 @@
 { pkgs, inputs, ... }:
 
 {
-  environment.systemPackages = with pkgs [
+  environment.systemPackages = with pkgs; [
     nix-ld  # only add nix-ld command
+
+    # ldd for 32bit binary
+    (pkgs.writeShellScriptBin "ldd32" ''
+      "$NIX_LD_i686_linux" \
+      --library-path "$NIX_LD_LIBRARY_PATH_i686_linux" \
+      --list "$@"
+    '')
   ];
 
   # Provide the FHS interpreter requested by 32-bit x86 ELF binaries.
@@ -104,7 +111,7 @@
       libvorbis
       SDL
       SDL2_image
-      glew110
+      glew_1_10
       libidn
       tbb
       

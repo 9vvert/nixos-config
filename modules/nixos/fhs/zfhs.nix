@@ -1,12 +1,7 @@
 { pkgs, inputs, ... }:
 
 {
-  imports = [
-    ./bfhs
-    ./zfhs
-  ];
-
-  environment.systemPackages = with pkgs [
+  environment.systemPackages = with pkgs; [
     # Create FHS environment
       (let base = pkgs.appimageTools.defaultFhsEnvArgs; in
         pkgs.buildFHSEnv (base // {

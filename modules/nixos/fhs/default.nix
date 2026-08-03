@@ -2,8 +2,8 @@
 
 {
   imports = [
-    ./bfhs
-    ./zfhs
-    ./ld
+    ./bfhs.nix
+    ./zfhs.nix
+    ./ld.nix
   ];
 }

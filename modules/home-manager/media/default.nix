@@ -10,9 +10,11 @@
     kdePackages.gwenview
     qqmusic
     playerctl # MediaMini need this?
+    pulseaudio
 
     # 
     telegram-desktop
+    wechat
   ];
 
   imports = [

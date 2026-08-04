@@ -96,8 +96,6 @@
 
     extraConfig = lib.mkAfter ''
       source ${./init.nu}
-      source ${./function.nu}
-      source ${./nu-script/proxy.nu}
     '';
   };
 

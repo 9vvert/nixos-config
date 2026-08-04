@@ -1,4 +1,4 @@
-def dae [option: string] {
+def daectl [option: string] {
     match $option {
         # NOTE: the command should be the same as those defined in configuration.nix, to prevent sudo password.
         "on" => { sudo /run/current-system/sw/bin/systemctl start dae.service }
@@ -21,6 +21,7 @@ def dae [option: string] {
             }
         }
         _ => {
+            print $"(ansi red_bold)Unknown args(ansi reset)"
         }
     }
 }

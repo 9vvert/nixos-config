@@ -48,7 +48,7 @@ in
       source ${configRoot}/scripts/misc/launch.nu
 
       def main [...args: string] {
-        dae ...$args
+        launch ...$args
       }
     '')
 

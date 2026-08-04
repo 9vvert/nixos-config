@@ -16,6 +16,10 @@
       git 
       patchelf
       nix-index
+
+      # 
+      zsh
+      nushell
       
       
       # editor
@@ -69,5 +73,5 @@
   };
 
   programs.zsh.enable = true;
-  programs.nushell.enable = true;
+
 }

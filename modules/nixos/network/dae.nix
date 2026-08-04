@@ -15,7 +15,7 @@
       source ${configRoot}/scripts/network/daectl.nu
 
       def main [option: string] {
-        dae $option
+        daectl $option
       }
     '')
   ];

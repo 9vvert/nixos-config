@@ -1,6 +1,10 @@
 { pkgs, inputs, ... }:
 
 {
+  imports = [
+    ./cross
+  ];
+
   environment = {
     systemPackages = with pkgs; [
       # basic
@@ -62,4 +66,6 @@
   services = {
     openssh.enable = true;
   };
+
+  programs.zsh.enable = true;
 }

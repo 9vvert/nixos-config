@@ -106,7 +106,7 @@
   users.users = {
     # FIXME: Replace with your username
     woc = {
-      shell = pkgs.nushell;
+      shell = pkgs.zsh;
       isNormalUser = true;
       openssh.authorizedKeys.keys = [
         # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect

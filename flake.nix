@@ -86,7 +86,10 @@
     nixosConfigurations = {
       # FIXME replace with your hostname
       "nixos" = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
+        specialArgs = {
+          inherit inputs;
+          configRoot = self;  
+        };
         modules = [
           # > Our main nixos configuration file <
           ./nixos/configuration.nix

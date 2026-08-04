@@ -1,4 +1,4 @@
-{ lib, pkgs, inputs, ... }:
+{ lib, pkgs, inputs, configRoot, ... }:
 let
   firefox152Pkgs = import inputs.nixpkgs25_11 {
     system = pkgs.stdenv.hostPlatform.system;
@@ -32,10 +32,25 @@ in
       dedicatedServer.openFirewall = true;
       extraCompatPackages = with pkgs; [
         proton-ge-bin
+        libGLU
       ];
     };
   };
 
   # turn off "doc", to prevent bulild failure of python312
   environment.extraOutputsToInstall = lib.mkForce [ "man" "info" ];
+
+
+  environment.systemPackages = with pkgs; [
+    (pkgs.writeScriptBin "L" ''
+      #!${pkgs.nushell}/bin/nu
+
+      source ${configRoot}/scripts/misc/launch.nu
+
+      def main [...args: string] {
+        launch ...$args
+      }
+    '')
+
+  ];
 }

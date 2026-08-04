@@ -12,5 +12,6 @@
     
     inputs.pyghidra-mcp.packages.${pkgs.stdenv.hostPlatform.system}.default
     cutter
+    radare2
   ];
 }

@@ -6,6 +6,7 @@
     ./network
     ./misc
     ./system
+    ./fhs
     ./program
   ];
 }

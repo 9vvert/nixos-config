@@ -1,4 +1,4 @@
-{ pkgs, inputs, lib, ... }:
+{ pkgs, inputs, lib, configRoot, ... }:
 
 {
   services = {
@@ -7,6 +7,18 @@
       configFile = "/etc/dae/config.dae";
     };
   };
+
+  environment.systemPackages = with pkgs; [
+    (pkgs.writeScriptBin "daectl" ''
+      #!${pkgs.nushell}/bin/nu
+
+      source ${configRoot}/scripts/network/daectl.nu
+
+      def main [option: string] {
+        daectl $option
+      }
+    '')
+  ];
 
   # Keep dae.service available for manual use, but do not start it at boot.
   systemd.services = {

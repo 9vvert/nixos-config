@@ -2,7 +2,8 @@
 
 {
   imports = [
-    ./cross
+    ./cross.nix
+    ./virtualization.nix
   ];
 
   environment = {

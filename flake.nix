@@ -25,8 +25,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    my-nixvim = {
-      url = "path:/home/woc/repo/nixvim-config" 
+    nixvim = {
+      url = "path:/home/woc/repo/nixvim-config";
     };
     # nixvim = {
     #   url = "github:nix-community/nixvim/nixos-26.05";
@@ -59,7 +59,7 @@
     home-manager, 
     noctalia, 
     codex-cli-nix,
-    my-nixvim
+    nixvim,
     ... 
   }@inputs: let
     systems = [

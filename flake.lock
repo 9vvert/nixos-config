@@ -391,8 +391,8 @@
         "nixvim": "nixvim_2"
       },
       "locked": {
-        "lastModified": 1786167853,
-        "narHash": "sha256-YlwY04osJ0i2uVKQbh8chDr4djsublSeoTE0KdYNDvE=",
+        "lastModified": 1786179536,
+        "narHash": "sha256-t0ef5iEeGSWfX6XTtzyA3vn/KStRj3PJdlMQ2nW/Z1U=",
         "path": "/home/woc/repo/nixvim-config",
         "type": "path"
       },

@@ -1,6 +1,10 @@
 { pkgs, inputs, lib, configRoot, ... }:
 
 {
+  imports = [
+    inputs.daeuniverse.nixosModules.dae
+  ];
+
   services = {
     dae = {
       enable = true;

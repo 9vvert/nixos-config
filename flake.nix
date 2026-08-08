@@ -24,10 +24,14 @@
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixvim = {
-      url = "github:nix-community/nixvim/nixos-26.05";
-      inputs.nixpkgs.follows = "nixpkgs";
+
+    my-nixvim = {
+      url = "path:/home/woc/repo/nixvim-config" 
     };
+    # nixvim = {
+    #   url = "github:nix-community/nixvim/nixos-26.05";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
     pyghidra-mcp.url =  "github:9vvert/pyghidra-mcp";
     pwndbg.url = "github:pwndbg/pwndbg";
 
@@ -50,7 +54,13 @@
   };
 
   outputs = { 
-    self, nixpkgs, home-manager, noctalia, codex-cli-nix, ... 
+    self, 
+    nixpkgs, 
+    home-manager, 
+    noctalia, 
+    codex-cli-nix,
+    my-nixvim
+    ... 
   }@inputs: let
     systems = [
       "x86_64-linux"
@@ -93,9 +103,7 @@
         modules = [
           # > Our main nixos configuration file <
           ./nixos/configuration.nix
-          # ./configuration.nix
-          # ./noctalia.nix
-          inputs.daeuniverse.nixosModules.dae
+          # inputs.daeuniverse.nixosModules.dae
         ];
       };
     };

@@ -24,7 +24,6 @@
       
       # editor
       vim
-      neovim
       
       #
       google-chrome  

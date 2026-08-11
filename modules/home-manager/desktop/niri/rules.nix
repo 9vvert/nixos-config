@@ -4,13 +4,19 @@
   programs.niri.settings."window-rules" = [
     {
       "geometry-corner-radius" = {
-        "top-left" = 20.0;
-        "top-right" = 20.0;
-        "bottom-left" = 20.0;
-        "bottom-right" = 20.0;
+        "top-left" = 8.0;
+        "top-right" = 8.0;
+        "bottom-left" = 8.0;
+        "bottom-right" = 8.0;
       };
       "draw-border-with-background" = false;
       "clip-to-geometry" = true;
+
+
+      # # fontsize + monospace -> a line with height: 46px, 874 = 46*19
+      # "min-height" = 874;
+      # "max-height" = 874;
+
     }
     {
       matches = [

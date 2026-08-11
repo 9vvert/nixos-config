@@ -16,6 +16,12 @@
       "image/bmp" = ["org.gnome.Loupe.desktop"];
       "image/tiff" = ["org.gnome.Loupe.desktop"];
       "image/svg+xml" = ["org.gnome.Loupe.desktop"];
+      # set default browser
+      "text/html" = "firefox.desktop";
+      "x-scheme-handler/http" = "firefox.desktop";
+      "x-scheme-handler/https" = "firefox.desktop";
+      "x-scheme-handler/about" = "firefox.desktop";
+      "x-scheme-handler/unknown" = "firefox.desktop";
     };
   };
 

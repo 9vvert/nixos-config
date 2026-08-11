@@ -117,6 +117,7 @@
         "networkmanager"
         "video"
         "render"
+        "docker"
         ];
     };
   };

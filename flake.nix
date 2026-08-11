@@ -3,8 +3,8 @@
 
   inputs = {
     nixpkgs25_11.url = "github:NixOS/nixpkgs/nixos-25.11";
-    # nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
-    nixpkgs.url = "git+https://mirrors.tuna.tsinghua.edu.cn/git/nixpkgs.git?ref=nixos-26.05&shallow=1";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
+    # nixpkgs.url = "git+https://mirrors.tuna.tsinghua.edu.cn/git/nixpkgs.git?ref=nixos-26.05&shallow=1";
     
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     quickshell = {

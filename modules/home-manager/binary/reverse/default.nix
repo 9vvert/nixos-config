@@ -13,5 +13,10 @@
     inputs.pyghidra-mcp.packages.${pkgs.stdenv.hostPlatform.system}.default
     cutter
     radare2
+
+
+    # wasm
+    wabt
+    wasm-tools
   ];
 }

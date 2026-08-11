@@ -77,6 +77,11 @@
           else
             file "$realpath"
           fi'
+
+
+
+        # activate python venv
+        source ~/.venv13/bin/activate
       '';
     };
 }

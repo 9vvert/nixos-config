@@ -5,6 +5,8 @@
   configRoot,
   ...
 }: let
+  wallpaperDir = "${configRoot}/wallpapers";
+  seaWallpaper = "${wallpaperDir}/sea.png";
   fuzzelThemeTemplate = pkgs.writeText "noctalia-fuzzel-template.ini" ''
     [colors]
     background={{colors.surface.default.hex}}dd

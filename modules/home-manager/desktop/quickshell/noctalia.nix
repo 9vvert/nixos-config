@@ -2,9 +2,9 @@
   pkgs,
   inputs,
   lib,
+  configRoot,
   ...
 }: let
-  seaWallpaper = "${../images/sea.png}";
   fuzzelThemeTemplate = pkgs.writeText "noctalia-fuzzel-template.ini" ''
     [colors]
     background={{colors.surface.default.hex}}dd
@@ -40,14 +40,22 @@ in {
       };
 
       wallpaper = {
-        directory = "";
-        default.path = seaWallpaper;
+        directory = "${configRoot}/wallpapers";
+        default.path = "${configRoot}/wallpapers/sea.png";
+
+        automation = {
+          enabled = true;
+          interval_seconds = 1800;
+          order = "random"; # or "alphabetical"
+          recursive = true;
+        };
       };
 
       theme = {
-        mode = "dark";
-        source = "builtin";
+        mode = "auto";
+        source = "wallpaper";
         builtin = "Nord";
+        custom_palette = "my-palette";
         wallpaper_scheme = "m3-tonal-spot";
         templates = {
           enable_builtin_templates = true;

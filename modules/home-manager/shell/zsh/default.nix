@@ -71,7 +71,7 @@
         zstyle ':fzf-tab:complete:cd:*' fzf-preview \
           'eza --tree --level=2 --color=always --icons=always --group-directories-first "$realpath"'
 
-        zstyle ':fzf-tab:complete:ls:*' fzf-preview \
+        zstyle ':fzf-tab:complete:*:*' fzf-preview \
           'if [[ -d "$realpath" ]]; then
             eza --tree --level=2 --color=always --icons=always "$realpath"
           else

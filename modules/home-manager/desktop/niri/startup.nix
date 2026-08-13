@@ -5,13 +5,13 @@
     { 
       command = ["noctalia"];
     }
-    {
-      # wrong: command = ["swaybg" "-i" "~/nixos-config/home-manager/desktop/images/sea.png"];
-      # use ${} because it is in nushell
+    # {
+    #   # wrong: command = ["swaybg" "-i" "~/nixos-config/home-manager/desktop/images/sea.png"];
+    #   # use ${} because it is in nushell
 
 
-      # Use noctalia's wallpaper
-      # command = ["${pkgs.swaybg}/bin/swaybg" "-i" "${../images/sea.png}" "-m" "fill"];
-    }
+    #   # Use noctalia's wallpaper
+    #   # command = ["${pkgs.swaybg}/bin/swaybg" "-i" "${../images/sea.png}" "-m" "fill"];
+    # }
   ];
 }

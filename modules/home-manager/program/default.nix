@@ -5,7 +5,7 @@
     JAVA_HOME = "${pkgs.jdk21}";
   };
 
-  programs.packages = with pkgs; [
+  home.packages = with pkgs; [
     lazygit
 
   ];

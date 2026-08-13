@@ -42,8 +42,8 @@ in {
       };
 
       wallpaper = {
-        directory = "${configRoot}/wallpapers";
-        default.path = "${configRoot}/wallpapers/sea.png";
+        directory = wallpaperDir;
+        default.path = seaWallpaper;
 
         automation = {
           enabled = true;

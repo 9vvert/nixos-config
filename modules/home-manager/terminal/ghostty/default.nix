@@ -12,6 +12,11 @@
       window-inherit-working-directory = true;
       tab-inherit-working-directory = true;
 
+
+      window-padding-balance = false;   # if window-padding-balance = true, leftover pixels will be put to both left/right, top/bottom
+      window-padding-color = "extend";
+
+
       window-decoration = "none";
       gtk-titlebar = false;
       window-show-tab-bar = "never";
@@ -22,13 +27,13 @@
       font-size = 11;
       # window padding
       window-padding-x = 8;
-      window-padding-y = 8;
+      window-padding-y = 4;
       # don't show the resize message
       resize-overlay = "never";
       # keybind
       keybind = [
         "ctrl+o=toggle_tab_overview"
-        "shift+enter=text:\x1b\r"
+        # "shift+enter=text:\x1b\r"
         "ctrl+super+i=new_window"
       ];
     };

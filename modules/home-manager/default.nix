@@ -12,5 +12,6 @@
     ./desktop
     ./input
     ./program
+    ./office
   ];
 }

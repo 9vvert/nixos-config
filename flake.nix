@@ -3,8 +3,8 @@
 
   inputs = {
     nixpkgs25_11.url = "github:NixOS/nixpkgs/nixos-25.11";
-    # nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
-    nixpkgs.url = "git+https://mirrors.tuna.tsinghua.edu.cn/git/nixpkgs.git?ref=nixos-26.05&shallow=1";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
+    # nixpkgs.url = "git+https://mirrors.tuna.tsinghua.edu.cn/git/nixpkgs.git?ref=nixos-26.05&shallow=1";
     
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     quickshell = {
@@ -24,10 +24,14 @@
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     nixvim = {
-      url = "github:nix-community/nixvim/nixos-26.05";
-      inputs.nixpkgs.follows = "nixpkgs";
+      url = "path:/home/woc/repo/nixvim-config";
     };
+    # nixvim = {
+    #   url = "github:nix-community/nixvim/nixos-26.05";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
     pyghidra-mcp.url =  "github:9vvert/pyghidra-mcp";
     pwndbg.url = "github:pwndbg/pwndbg";
 
@@ -50,7 +54,13 @@
   };
 
   outputs = { 
-    self, nixpkgs, home-manager, noctalia, codex-cli-nix, ... 
+    self, 
+    nixpkgs, 
+    home-manager, 
+    noctalia, 
+    codex-cli-nix,
+    nixvim,
+    ... 
   }@inputs: let
     systems = [
       "x86_64-linux"
@@ -93,9 +103,7 @@
         modules = [
           # > Our main nixos configuration file <
           ./nixos/configuration.nix
-          # ./configuration.nix
-          # ./noctalia.nix
-          inputs.daeuniverse.nixosModules.dae
+          # inputs.daeuniverse.nixosModules.dae
         ];
       };
     };
@@ -107,7 +115,10 @@
       "woc" = home-manager.lib.homeManagerConfiguration {
         # Home-manager requires 'pkgs' instance
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # FIXME replace x86_64-linux with your architecture 
-        extraSpecialArgs = {inherit inputs;};
+        extraSpecialArgs = {
+          inherit inputs;
+          configRoot = self;
+        };
         modules = [
           # > Our main home-manager configuration file <
           ./home-manager/home.nix

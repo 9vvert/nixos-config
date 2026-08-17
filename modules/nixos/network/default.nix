@@ -7,6 +7,7 @@
 
   environment.systemPackages = with pkgs; [
     clash-verge-rev
+    tailscale
   ];
 
   networking = {

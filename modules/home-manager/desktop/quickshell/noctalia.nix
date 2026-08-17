@@ -2,9 +2,11 @@
   pkgs,
   inputs,
   lib,
+  configRoot,
   ...
 }: let
-  seaWallpaper = "${../images/sea.png}";
+  wallpaperDir = "${configRoot}/wallpapers";
+  seaWallpaper = "${wallpaperDir}/sea.png";
   fuzzelThemeTemplate = pkgs.writeText "noctalia-fuzzel-template.ini" ''
     [colors]
     background={{colors.surface.default.hex}}dd
@@ -40,14 +42,24 @@ in {
       };
 
       wallpaper = {
-        directory = "";
+        directory = wallpaperDir;
         default.path = seaWallpaper;
+
+        transition = ["fade"];
+        automation = {
+          enabled = false;
+          # interval_seconds = 1800;
+          #
+          # order = "fade"; # or "alphabetical"
+          # recursive = true;
+        };
       };
 
       theme = {
-        mode = "dark";
-        source = "builtin";
+        mode = "auto";
+        source = "wallpaper";
         builtin = "Nord";
+        custom_palette = "my-palette";
         wallpaper_scheme = "m3-tonal-spot";
         templates = {
           enable_builtin_templates = true;
@@ -109,7 +121,6 @@ in {
           "control_center"
           "notification_history"
           "launcher"
-          
         ];
         end = [
           "network"
@@ -229,8 +240,8 @@ in {
 
   xdg.configFile."noctalia/templates/fuzzel.ini".source = fuzzelThemeTemplate;
 
-  # Noctalia v5 keeps user changes such as dark/light mode in local state. Keep
-  # that file mutable, but migrate the upstream default wallpaper to the old one.
+  # Noctalia v5 keeps some runtime changes in local state. Keep that file
+  # mutable, but remove stale overrides that should now come from Home Manager.
   home.activation.noctaliaV5MutableState = lib.hm.dag.entryAfter ["writeBoundary"] ''
     state_dir="$HOME/.local/state/noctalia"
     settings_file="$state_dir/settings.toml"
@@ -239,6 +250,7 @@ in {
 
     if [ -f "$settings_file" ]; then
       $DRY_RUN_CMD ${pkgs.perl}/bin/perl -0pi -e 's#path = "/nix/store/[^"]+-noctalia-[^"]*/share/noctalia/assets/noctalia-wallpaper\.png"#path = "${seaWallpaper}"#g' "$settings_file"
+      $DRY_RUN_CMD ${pkgs.perl}/bin/perl -0pi -e 's#(?ms)^\[theme\]\n.*?(?=^\[|\z)##' "$settings_file"
     fi
   '';
 }

@@ -5,5 +5,6 @@
     pwntools
     ropr
     ropgadget
+    one_gadget
   ];
 }

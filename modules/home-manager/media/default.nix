@@ -16,6 +16,10 @@
     telegram-desktop
     wechat
     discord
+
+    # 
+    kazumi
+    animeko
   ];
 
   imports = [

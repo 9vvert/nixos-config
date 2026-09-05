@@ -13,5 +13,6 @@
     ./input
     ./program
     ./office
+    ./misc
   ];
 }

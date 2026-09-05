@@ -9,8 +9,11 @@
     # loupe # ?
     kdePackages.gwenview
     qqmusic
+    netease-cloud-music-gtk
     playerctl # MediaMini need this?
     pulseaudio
+
+    mpv
 
     # 
     telegram-desktop
@@ -19,7 +22,12 @@
 
     # 
     kazumi
-    animeko
+    # animeko
+
+    bilibili
+    bilibili-tui
+
+    freetube  # youtube
   ];
 
   imports = [

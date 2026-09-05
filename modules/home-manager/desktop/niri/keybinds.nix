@@ -95,7 +95,7 @@
     "Mod+J".action."focus-window-down" = [];
     "Mod+K".action."focus-window-up" = [];
     "Mod+L".action."focus-column-right" = [];
-    "Mod+Shift+H".action."focus-column-fist" = [];
+    "Mod+Shift+H".action."focus-column-first" = [];
     "Mod+Shift+J".action."focus-window-bottom" = [];
     "Mod+Shift+K".action."focus-window-top" = [];
     "Mod+Shift+L".action."focus-column-last" = [];
@@ -132,8 +132,8 @@
     "Mod+Page_Up".action."focus-workspace-up" = [];
     "Mod+N".action."focus-workspace-down" = [];
     "Mod+P".action."focus-workspace-up" = [];
-    "Mod+Shift+N".action."focus-workspace-down" = [ 999 ];
-    "Mod+Shift+P".action."focus-workspace-up" = [ 1 ];
+    "Mod+Shift+N".action."focus-workspace" = [ 255 ];
+    "Mod+Shift+P".action."focus-workspace" = [ 1 ];
     "Mod+Ctrl+Page_Down".action."move-column-to-workspace-down" = [];
     "Mod+Ctrl+Page_Up".action."move-column-to-workspace-up" = [];
     "Mod+Ctrl+N".action."move-column-to-workspace-down" = [];

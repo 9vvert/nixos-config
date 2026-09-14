@@ -8,5 +8,9 @@
     # markdown
     typora
     glow
+
+    #
+    feishu
+    feishu-cli
   ];
 }

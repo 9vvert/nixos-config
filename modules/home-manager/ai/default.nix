@@ -3,6 +3,6 @@
 {
   imports = [
     ./codex
-    # ./claude
+    ./claude-code
   ];
 }

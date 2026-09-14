@@ -6,11 +6,12 @@
 }: {
   home.packages = with pkgs; [
     # markdown
-    typora
-    glow
+    gperf
 
-    #
-    feishu
-    feishu-cli
+    # wiki
+    wiki-js
+
+    # 
+    nota
   ];
 }

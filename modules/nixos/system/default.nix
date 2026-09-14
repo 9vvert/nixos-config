@@ -4,6 +4,8 @@
   imports = [
     ./cross.nix
     ./virtualization.nix
+    ./device.nix
+    ./libs.nix
   ];
 
   environment = {

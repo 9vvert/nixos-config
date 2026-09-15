@@ -1,4 +1,4 @@
-{ pkgs, inputs,... }:
+{ pkgs, inputs, configRoot, ... }:
 
 {
   environment = {
@@ -9,7 +9,7 @@
     ];
   };
 
-  sops.defaultSopsFile = ./secrets/default.yaml;
+  sops.defaultSopsFile = "${configRoot}/secrets/default.yaml";
 
   sops.secrets.vultr_vps = {};
   sops.secrets.tapfog_link = {};

@@ -15,12 +15,12 @@ global {
 
 subscription {
   # Fill in your subscription links here.
-  tapfog: __TAPFOG__
+  tapfog: '__TAPFOG__'
 
 }
 
 node {
-  my_vps: __VPS__
+  my_vps: '__VPS__'
 }
 
 

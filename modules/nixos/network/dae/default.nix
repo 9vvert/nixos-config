@@ -1,4 +1,4 @@
-{ pkgs, inputs, lib, configRoot, ... }:
+{ pkgs, config, inputs, lib, configRoot, ... }:
 
 {
   imports = [
@@ -27,7 +27,7 @@
         builtins.replaceStrings
         [ "__TAPFOG__" ]
         [ config.sops.placeholder.tapfog_link ]
-        (builtins.readFile ./config.dae);
+        (builtins.readFile ./config.dae)
       );
   };
 

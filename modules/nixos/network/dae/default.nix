@@ -12,6 +12,26 @@
     };
   };
 
+  sops.templates."dae-config" = {
+    path = "/etc/dae/config.dae";
+
+    owner = "root";
+    group = "root";
+    mode = "0600";
+
+    content =
+      builtins.replaceStrings
+      [ "__VPS__" ]
+      [ config.sops.placeholder.vultr_vps ]
+      (
+        builtins.replaceStrings
+        [ "__TAPFOG__" ]
+        [ config.sops.placeholder.tapfog_link ]
+        (builtins.readFile ./config.dae);
+      );
+  };
+
+
   environment.systemPackages = with pkgs; [
     (pkgs.writeScriptBin "daectl" ''
       #!${pkgs.nushell}/bin/nu

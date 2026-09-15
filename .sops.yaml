@@ -1,0 +1,10 @@
+keys:
+  - &9vvert age1745vunna3pmzt5m39m7kuag6ppc5a032s3wlhdy0xmyvv3ddrphst23ld5
+  - &laptop age14nnrz58sle0hlhvszd26ke4s5vqkrfl95yu2rkz5gu8hx5kgvq3se6d29n
+
+creation_rules:
+  - path_regex: secrets/.*\.yaml$
+    key_groups:
+      - age:
+          - *9vvert
+          - *laptop

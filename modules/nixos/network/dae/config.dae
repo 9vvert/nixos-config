@@ -1,0 +1,97 @@
+global {
+  # Bind to LAN and/or WAN as you want. Replace the interface name to your own.
+  # lan_interface: docker0
+  wan_interface: auto
+
+  log_level: debug
+  allow_insecure: false
+  auto_config_kernel_parameter: true
+
+  dial_mode: domain
+
+  tls_implementation: utls
+  utls_imitate: chrome_auto
+}
+
+subscription {
+  # Fill in your subscription links here.
+  tapfog: __TAPFOG__
+
+}
+
+node {
+  my_vps: __VPS__
+}
+
+
+# See https://github.com/daeuniverse/dae/blob/main/docs/en/configuration/dns.md for full examples.
+dns {
+  upstream {
+    googledns: 'tcp+udp://dns.google:53'
+    alidns: 'udp://dns.alidns.com:53'
+  }
+  routing {
+    request {
+      qname(geosite:cn) -> alidns
+      # 其余 fallback 走 googledns（推荐这样，而不是 alidns）
+      fallback: googledns
+    }
+  }
+}
+group {
+    # 只包含订阅节点
+    common_proxy {
+        filter: subtag(tapfog) && !name(keyword: 'ExpireAt:')
+        policy: min_moving_avg
+    }
+
+    # 只包含自己的节点
+    vps_proxy {
+        filter: name(my_vps)
+        policy: fixed(0)
+    }
+
+    # 默认使用的组：订阅优先，自己的节点兜底
+    mix_proxy {
+        filter: subtag(tapfog) && !name(keyword: 'ExpireAt:')
+        filter: name(my_vps) [add_latency: 9999ms]
+        policy: min_moving_avg
+    }
+}
+
+# See https://github.com/daeuniverse/dae/blob/main/docs/en/configuration/routing.md for full examples.
+routing {
+  pname(NetworkManager) -> direct
+  dip(224.0.0.0/3, 'ff00::/8') -> direct
+
+  dscp(4) -> direct
+
+  ### Write your rules below.
+
+  # OpenAI
+  domain(geosite:openai) -> vps_proxy
+
+  # google
+  domain(geosite:google) -> vps_proxy
+  domain(geosite:google-deepmind) -> vps_proxy
+  domain(geosite:google-gemini) -> vps_proxy
+
+  # github
+  domain(geosite:github) -> vps_proxy
+
+  # Docker
+  domain(geosite:docker) -> vps_proxy
+
+  domain(geosite:anthropic) -> vps_proxy
+
+  #
+  dip(geoip:cn) -> direct
+  domain(geosite:cn) -> direct
+
+  # Disable h3 because it usually consumes too much cpu/mem resources.
+  l4proto(udp) && dport(443) -> block
+  domain(geosite:cn) -> direct
+
+  fallback: mix_proxy
+}
+

@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./dae.nix
+    ./dae
   ];
 
   environment.systemPackages = with pkgs; [

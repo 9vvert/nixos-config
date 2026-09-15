@@ -6,6 +6,7 @@
     ./virtualization.nix
     ./device.nix
     ./libs.nix
+    ./security.nix
   ];
 
   environment = {

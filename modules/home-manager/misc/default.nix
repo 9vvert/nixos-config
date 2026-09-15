@@ -11,7 +11,10 @@
     # wiki
     wiki-js
 
-    # 
+    # fun 
     nota
+
+    #
+    jekyll
   ];
 }

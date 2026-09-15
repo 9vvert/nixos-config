@@ -39,6 +39,11 @@
       url = "path:/home/woc/repo/qqmusic-mpris-bridge";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     
     home-manager = {
           url = "github:nix-community/home-manager/release-26.05";
@@ -60,6 +65,7 @@
     noctalia, 
     codex-cli-nix,
     nixvim,
+    sops-nix,
     ... 
   }@inputs: let
     systems = [
@@ -104,6 +110,8 @@
           # > Our main nixos configuration file <
           ./nixos/configuration.nix
           # inputs.daeuniverse.nixosModules.dae
+
+          inputs.sops-nix.nixosModules.sops
         ];
       };
     };

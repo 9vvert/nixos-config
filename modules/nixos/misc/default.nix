@@ -16,7 +16,12 @@ in
 
     firefox = {
       enable = true;
-      package = firefox152Pkgs.firefox;
+      # prevent the env var poison by feishu
+      package = firefox152Pkgs.firefox.overrideAttrs (old: {
+        makeWrapperArgs =
+          [ "--unset" "LD_LIBRARY_PATH" ]
+          ++ (old.makeWrapperArgs or []);
+      });
       policies = {
         DisableAppUpdate = true;
         Proxy = {

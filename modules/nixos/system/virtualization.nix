@@ -6,6 +6,7 @@
       # virtual machine
       qemu
       virtualbox
+      vmware-workstation
 
       # docker
       docker

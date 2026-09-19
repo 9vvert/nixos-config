@@ -6,6 +6,7 @@
 
     pkg-config
     wayland
+    wayland-scanner
     wayland-protocols
 
     foot

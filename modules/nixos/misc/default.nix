@@ -17,9 +17,15 @@ in
     firefox = {
       enable = true;
       # prevent the env var poison by feishu
+      # just unset LD_LIBRARY_PATH is NOT enough
       package = firefox152Pkgs.firefox.overrideAttrs (old: {
         makeWrapperArgs =
-          [ "--unset" "LD_LIBRARY_PATH" ]
+          [
+            "--unset" "LD_LIBRARY_PATH"
+            "--unset" "LD_PRELOAD"
+            "--unset" "NIX_LD"
+            "--unset" "NIX_LD_LIBRARY_PATH"
+          ]
           ++ (old.makeWrapperArgs or []);
       });
       policies = {

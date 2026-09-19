@@ -111,7 +111,7 @@
           ./nixos/configuration.nix
           # inputs.daeuniverse.nixosModules.dae
 
-          inputs.sops-nix.nixosModules.sops
+          sops-nix.nixosModules.sops
         ];
       };
     };
@@ -130,7 +130,10 @@
         modules = [
           # > Our main home-manager configuration file <
           ./home-manager/home.nix
-          sops-nix.nixosModules.sops
+          # Standalone Home Manager needs sops-nix's Home Manager module.
+          # The NixOS module references `config.system`, which does not exist
+          # in a standalone Home Manager evaluation.
+          sops-nix.homeManagerModules.sops
           
         ];
       };

@@ -44,6 +44,10 @@
 
   # font
   fonts = {
+    # Some native Steam/Unity games scan /usr/share/fonts directly instead of
+    # using Fontconfig. Provide the FHS-compatible NixOS font directory.
+    fontDir.enable = true;
+
     packages = with pkgs; [
       nerd-fonts.jetbrains-mono
       noto-fonts
@@ -61,8 +65,8 @@
 
       defaultFonts = {
         sansSerif = [
-          "Noto Sans"
           "Noto Sans CJK SC"
+          "Noto Sans"
           "Maple Mono NF CN"
           "Noto Color Emoji"
         ];
@@ -91,6 +95,24 @@
         <?xml version="1.0"?>
         <!DOCTYPE fontconfig SYSTEM "urn:fontconfig:fonts.dtd">
         <fontconfig>
+          <match target="pattern">
+            <test qual="any" name="family">
+              <string>Arial</string>
+            </test>
+            <edit name="family" mode="prepend" binding="strong">
+              <string>Noto Sans CJK SC</string>
+              <string>WenQuanYi Micro Hei</string>
+            </edit>
+          </match>
+          <match target="pattern">
+            <test qual="any" name="family">
+              <string>Liberation Sans</string>
+            </test>
+            <edit name="family" mode="prepend" binding="strong">
+              <string>Noto Sans CJK SC</string>
+              <string>WenQuanYi Micro Hei</string>
+            </edit>
+          </match>
           <match target="pattern">
             <test qual="any" name="family">
               <string>Microsoft YaHei</string>

@@ -5,6 +5,7 @@
 }: {
   imports = [
     ./niri.nix
+    ./river.nix
   ];
 
   # misc software

@@ -66,6 +66,11 @@
       gawk
       zstd
       gnupg
+
+      bpftools
+      bpftop
+      bpftrace
+      bpfilter
     ];
     variables.EDITOR = "vim";
   };

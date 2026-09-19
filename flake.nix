@@ -75,7 +75,7 @@
     # This is a function that generates an attribute by calling a function you
     # pass to it, with each system as an argument
     forAllSystems = nixpkgs.lib.genAttrs systems; 
-
+    pkgs = nixpkgs.legacyPackages.x86_64-linux;
   in
     {
     # Your custom packages
@@ -122,7 +122,7 @@
       # FIXME replace with your username@hostname
       "woc" = home-manager.lib.homeManagerConfiguration {
         # Home-manager requires 'pkgs' instance
-        pkgs = nixpkgs.legacyPackages.x86_64-linux; # FIXME replace x86_64-linux with your architecture 
+        # pkgs = nixpkgs.legacyPackages.x86_64-linux; # FIXME replace x86_64-linux with your architecture 
         extraSpecialArgs = {
           inherit inputs;
           configRoot = self;
@@ -141,7 +141,7 @@
 
 
     # dev shells
-    devShells.${system} = {
+    devShells.x86_64-linux = {
       river = pkgs.mkShell {
         packages = with pkgs; [
           zig_0_16
@@ -152,6 +152,6 @@
           linuxHeaders
         ];
       };
-    }
+    };
   };
 }

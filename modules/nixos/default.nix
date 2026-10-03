@@ -8,6 +8,5 @@
     ./system
     ./fhs
     ./program
-    ./dev-shell
   ];
 }

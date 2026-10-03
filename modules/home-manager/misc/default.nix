@@ -16,5 +16,8 @@
 
     #
     jekyll
+
+    #
+    tigervnc
   ];
 }

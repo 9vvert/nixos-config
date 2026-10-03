@@ -12,6 +12,7 @@
     ./desktop
     ./input
     ./program
+    ./develop
     ./office
     ./misc
   ];

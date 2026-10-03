@@ -15,6 +15,7 @@
           "diffEditor.ignoreTrimWhitespace" = false;
           "editor.defaultColorDecorators" = "never";
         };
+        "zig.zls.enabled" = "on";
       };
     };
   };

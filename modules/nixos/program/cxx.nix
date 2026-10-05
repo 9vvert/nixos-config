@@ -14,5 +14,6 @@
     # llvmPackages.clang-unwrapped
     clang-tools
     lldb
+    llvm
   ];
 }

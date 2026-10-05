@@ -14,5 +14,8 @@
 
     # minecraft
     prismlauncher
+
+    # emulator
+    snes9x
   ];
 }

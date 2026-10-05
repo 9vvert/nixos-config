@@ -75,7 +75,7 @@
     # This is a function that generates an attribute by calling a function you
     # pass to it, with each system as an argument
     forAllSystems = nixpkgs.lib.genAttrs systems; 
-
+    pkgs = nixpkgs.legacyPackages.x86_64-linux;
   in
     {
     # Your custom packages
@@ -111,7 +111,7 @@
           ./nixos/configuration.nix
           # inputs.daeuniverse.nixosModules.dae
 
-          inputs.sops-nix.nixosModules.sops
+          sops-nix.nixosModules.sops
         ];
       };
     };
@@ -130,8 +130,26 @@
         modules = [
           # > Our main home-manager configuration file <
           ./home-manager/home.nix
-          sops-nix.nixosModules.sops
+          # Standalone Home Manager needs sops-nix's Home Manager module.
+          # The NixOS module references `config.system`, which does not exist
+          # in a standalone Home Manager evaluation.
+          sops-nix.homeManagerModules.sops
           
+        ];
+      };
+    };
+
+
+    # dev shells
+    devShells.x86_64-linux = {
+      river = pkgs.mkShell {
+        packages = with pkgs; [
+          zig_0_16
+          pkg-config
+          wayland
+          wayland-scanner
+          wayland-protocols
+          linuxHeaders
         ];
       };
     };

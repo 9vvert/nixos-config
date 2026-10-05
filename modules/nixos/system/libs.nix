@@ -4,6 +4,9 @@
   environment = {
     systemPackages =with pkgs; [
       libseccomp
+
+      SDL2
+      
     ];
   };
 

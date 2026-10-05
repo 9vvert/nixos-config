@@ -10,6 +10,6 @@
     ./ruby.nix
     ./rust.nix
     ./ts_js.nix
-    
+    ./zig.nix
   ];
 }

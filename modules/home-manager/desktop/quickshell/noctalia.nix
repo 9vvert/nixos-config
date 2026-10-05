@@ -1,4 +1,5 @@
 {
+  config,
   pkgs,
   inputs,
   lib,
@@ -22,9 +23,27 @@ in {
     inputs.noctalia.homeModules.default
   ];
 
+  # my plugin
+
+  xdg.dataFile."noctalia/plugins/proxy-manager".source = 
+    (
+      builtins.fetchGit {
+        url = "git@github.com:9vvert/my-noctalia-plugins.git";
+        ref = "main";
+        rev = "8a7fefdacb19e49e95e4d4c2e84cc1ca054a4696";
+      }
+    ) + "/proxy-manager";
+
+
   programs.noctalia = {
     enable = true;
     settings = {
+      plugins = {
+        enabled = [
+          "9vvert/proxy-manager"
+          "noctalia/translator"
+        ];
+      };
       shell = {
         corner_radius_scale = 1.0;
         settings_show_advanced = true;
@@ -118,12 +137,15 @@ in {
         ];
         center = [
           "clock"
+          "launcher"
           "control_center"
           "notification_history"
-          "launcher"
+          "clipboard"
+          "translator"
         ];
         end = [
           "network"
+          "proxy"
           "bluetooth"
           "volume"
           "brightness"
@@ -228,6 +250,18 @@ in {
         battery = {
           type = "battery";
           show_label = false;
+        };
+
+        clipboard = {
+          type = "clipboard";
+        };
+
+        proxy = {
+          type = "9vvert/proxy-manager:proxy";
+        };
+
+        translator = {
+          type = "noctalia/translator";
         };
 
         keep_awake.type = "caffeine";

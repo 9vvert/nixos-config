@@ -2,9 +2,13 @@
 
 {
   home.packages = with pkgs; [
+    # classic roguelike
     nethack
     angband
-    cataclysm-dda
+ 
+    # CDDA
+    cataclysmDDA.stable.tiles
+    cataclysmDDA.stable.curses
 
     # steam related
     protonup-qt

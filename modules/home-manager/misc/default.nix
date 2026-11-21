@@ -19,5 +19,11 @@
 
     #
     tigervnc
+
+    # squshfs
+    squashfsTools
+    sasquatch
+    ubi_reader
+    ubidump
   ];
 }
